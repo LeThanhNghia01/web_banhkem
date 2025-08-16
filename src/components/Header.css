@@ -1,0 +1,129 @@
+/* THIẾT LẬP THANH ĐIỀU HƯỚNG (NAVBAR) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1500;
+    transition: all 0.5s ease;
+    background-color: #E0E3EB;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+/* Container cho nội dung trong navbar */
+.nav-container {
+    display: flex;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+}
+
+/* Thiết lập cho phần tử chứa logo và tên thương hiệu */
+.home {
+    font-size: 20px;
+    display: flex; /* Thêm flexbox để căn chỉnh logo và hamburger */
+    align-items: center;
+    justify-content: space-between;
+    width: auto; /* Để width tự động điều chỉnh */
+}
+
+/* Thiết lập cho liên kết trong phần tử home */
+.home a {
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.img_logo_home {
+    height: 40px;   
+    width: 50px;  
+}
+
+/* Ẩn menu hamburger ở desktop */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Mặc định menu ngang (desktop) */
+.nav_links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    left: 240px;
+    top: -15px;
+    font-size: 18px;
+}
+
+/* Thiết lập cho các liên kết trong nav_links */
+.nav_links a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho các liên kết */
+.nav_links a:hover {
+    color: #BB8843;
+}
+
+/* RESPONSIVE DESIGN - Mobile */
+@media (max-width: 768px) {
+    /* Điều chỉnh home để hiển thị hamburger */
+    .home {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        justify-content: space-between; /* Logo bên trái, hamburger bên phải */
+    }
+    
+    /* Hiển thị nút hamburger */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Ẩn menu desktop */
+    .nav_links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #E0E3EB;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* Reset position cho mobile */
+        left: 0;
+        top: 60px;
+    }
+
+    /* Hiển thị menu khi active */
+    .nav_links.active {
+        display: flex;
+    }
+    
+    /* Reset nav-container cho mobile */
+    .nav-container {
+        justify-content: flex-start; /* Căn trái thay vì space-between */
+    }
+    
+    /* Điều chỉnh links trong mobile menu */
+    .nav_links a {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .nav_links a:last-child {
+        border-bottom: none;
+    }
+}

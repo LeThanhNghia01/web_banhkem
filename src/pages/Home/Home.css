@@ -1,0 +1,387 @@
+body {
+    line-height: 1.6;          
+    font-family: 'Raleway', sans-serif;  
+    overflow-x: hidden;    
+    background-image: url("../../assets/images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* THIẾT LẬP CHO PHẦN BANNER */
+/* Container cho phần banner */
+.banner_section {
+    position: relative;     
+    height: 100vh;          /* Full chiều cao màn hình */
+    width: 100vw;           /* Full chiều rộng màn hình */
+    left: 50%;              /* Đẩy ra giữa */
+    margin-left: -50vw;     /* Căn giữa chính xác */
+    overflow: hidden;       
+    margin-top: 0;          /* Bỏ margin-top để full màn hình */
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: overlay; 
+    box-sizing: border-box; /* Đảm bảo tính toán kích thước chính xác */
+}
+
+/* Thanh ngang chứa văn bản trong banner */
+.banner {
+    position: absolute;          
+    width: 100%;                 
+    height: 200px;               
+    top: 50%;                    /* Căn giữa theo chiều dọc */
+    transform: translateY(-100px); /* Điều chỉnh để căn giữa chính xác */
+    transition: background-color 1s ease;  
+    background-color: #BB8843;   
+}
+
+/* Văn bản trong banner */
+.banner_text {
+    position: absolute;          
+    width: 100%;                 
+    text-align: center;          
+    color: #ffffff;              
+    margin-left: -200px;         
+    text-transform: uppercase;   
+    font-size: 36px;          
+    font-weight: bold;          
+    letter-spacing: 5px;         
+    top: 50%;                    
+    transform: translateY(-50%); 
+    font-family: 'Space Mono', monospace;
+}
+
+/* Container cho phần văn bản chuyển đổi */
+#flip {
+    height: 60px;           
+    overflow: hidden;       
+}
+
+/* Thiết lập cho từng phần tử văn bản chuyển đổi */
+#flip > div > div {
+    color: #fff;            
+    height: 45px;           
+    margin-bottom: 45px;    
+    display: inline-block;  
+}
+
+/* Animation cho phần tử đầu tiên trong #flip */
+#flip div:first-child {
+    animation: show 15s linear infinite;  
+}
+
+/* Màu nền cho các phần tử div trong #flip */
+#flip div div {
+    background: #e73458;    
+}
+
+#flip div:first-child div {
+    background: #e73458;    
+}
+
+#flip div:last-child div {
+    background: #e73458;    
+}
+
+/* Định nghĩa animation "show" để chuyển đổi giữa các dòng văn bản */
+@keyframes show {
+    0% {margin-top: -270px;}       
+    5% {margin-top: -180px;}       
+    33% {margin-top: -180px;}      
+    38% {margin-top: -90px;}       
+    66% {margin-top: -90px;}       
+    71% {margin-top: 0px;}         
+    99.99% {margin-top: 0px;}      
+    100% {margin-top: -270px;}     
+}
+
+/* Container chứa các hình ảnh banner */
+.banner_images {
+    position: absolute;            
+    width: 300%;                   
+    height: 100%;                  
+    top: 0;                        /* Điều chỉnh để phù hợp với full screen */
+    display: flex;                 
+    left: 0;                       
+    transition: left 1s ease-in-out;  
+}
+
+/* Container cho mỗi hình ảnh banner */
+.banner_image {
+    width: 33.33%;               
+    height: 100%;                
+    display: flex;               
+    justify-content: flex-end;   
+    align-items: center;         
+}
+
+/* Thiết lập cho hình ảnh banner */
+.banner_img {
+    height: 60vh;                /* Responsive với viewport height */
+    width: 60vh; 
+    position: relative;
+    top: 0;                      /* Điều chỉnh vị trí */             
+    object-fit: contain;         
+    animation: floatAnimation 3s ease-in-out infinite;  
+}
+
+.banner_img2 {
+    height: 50vh;                /* Responsive với viewport height */
+    width: 50vh;                
+    right: 70px;
+    position: relative;
+    object-fit: contain;         
+    animation: floatAnimation 3s ease-in-out infinite;  
+}
+
+.banner_img3 {
+    height: 50vh;                /* Responsive với viewport height */
+    width: 50vh;                
+    object-fit: contain;         
+    position: relative;
+    right: 70px;
+    animation: floatAnimation 3s ease-in-out infinite;  
+}
+
+/* Định nghĩa animation "floatAnimation" để tạo hiệu ứng lên xuống */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);     
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+    100% {
+        transform: translateY(0);     
+    }
+}
+
+/* Thêm độ trễ cho hình ảnh thứ 2 */
+.banner_image:nth-child(2) .banner_img {
+    animation-delay: 0.5s;        
+}
+
+/* Thêm độ trễ cho hình ảnh thứ 3 */
+.banner_image:nth-child(3) .banner_img {
+    animation-delay: 1s;          
+}
+
+/* Container chứa các nút điều khiển slider */
+.slider-controls {
+    position: absolute;           
+    bottom: 20px;                 
+    left: 50%;                    
+    transform: translateX(-50%);  
+    display: flex;                
+    gap: 10px;                    
+}
+
+/* Thiết lập cho từng nút điều khiển (dot) */
+.slider-dot {
+    width: 12px;                   
+    height: 12px;                  
+    border-radius: 50%;            
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;               
+    transition: background-color 0.3s;  
+}
+
+/* Thiết lập cho nút đang được chọn */
+.slider-dot.active {
+    background-color: white;       
+}
+
+/* ===== ----------------------------RESPONSIVE DESIGN - MOBILE---------------------------- ===== */
+
+/* Tablet - Màn hình từ 768px trở xuống */
+@media screen and (max-width: 768px) {
+    .banner_section {
+        height: 100vh;
+        margin-top: 0;
+    }
+    
+    .banner {
+        height: 150px;
+        top: 50%;
+        transform: translateY(-75px);
+    }
+    
+    .banner_text {
+        font-size: 14px;
+        letter-spacing: 3px;
+        margin-left: -100px;
+    }
+    
+    #flip {
+        
+        height: 50px;
+    }
+    
+    #flip > div > div {
+        height: 35px;
+        margin-bottom: 35px;
+    }
+    
+    .banner_images {
+        top: 0;
+        margin-left: 90px;
+    }
+    
+    .banner_img {
+        height: 40vh;
+        width: 40vh;
+        top: 0;
+    }
+    
+    .banner_img2,
+    .banner_img3 {
+        height: 35vh;
+        width: 35vh;
+        right: 30px;
+    }
+    
+    @keyframes show {
+        0% {margin-top: -175px;} /*  vị trí bắt đầu */
+        5% {margin-top: -105px;} /* Vị trí của "Sự tươi mát" */
+        33% {margin-top: -105px;}
+        38% {margin-top: -35px;} /* Vị trí của "Sự ngọt ngào" */
+        66% {margin-top: -35px;}
+        71% {margin-top: 0px;}   /* Vị trí của "Niềm hạnh phúc" */
+        99.99% {margin-top: 0px;}
+        100% {margin-top: -175px;}
+    }
+}
+
+/* Mobile - Màn hình từ 480px trở xuống - FIXED VERSION */
+@media screen and (max-width: 480px) {
+    .banner_section {
+        height: 100vh;
+        margin-top: 0;
+    }
+    
+    .banner {
+        height: 120px;
+        top: 50%;
+        transform: translateY(-60px);
+    }
+    
+    .banner_text {
+        font-size: 14px;
+        letter-spacing: 2px;
+        margin-left: -90px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    
+    #flip {
+        height: 40px;
+    }
+    
+    #flip > div > div {
+        height: 25px;
+        margin-bottom: 25px;
+    }
+    
+    /* ANIMATION ĐƯỢC SỬA ĐỂ CĂNG CHỈNH ĐÚNG VỊ TRÍ */
+    @keyframes show {
+        0% {margin-top: -100px;}   /* Bắt đầu - ẩn tất cả */
+        5% {margin-top: 0px;}      /* Hiển thị "Sự tươi mát" */
+        33% {margin-top: 0px;}     /* Giữ "Sự tươi mát" */
+        38% {margin-top: -50px;}   /* Hiển thị "Sự ngọt ngào" */
+        66% {margin-top: -50px;}   /* Giữ "Sự ngọt ngào" */
+        71% {margin-top: -100px;}  /* Hiển thị "Niềm hạnh phúc" */
+        99.99% {margin-top: -100px;} /* Giữ "Niềm hạnh phúc" */
+        100% {margin-top: -100px;} /* Quay về vị trí ban đầu */
+    }
+    
+    .banner_images {
+        top: 0;
+    }
+    
+    .banner_image {
+        justify-content: center;
+    }
+    
+    .banner_img {
+        height: 30vh;
+        width: 30vh;
+        top: 0;
+    }
+    
+    .banner_img2,
+    .banner_img3 {
+        height: 30vh;
+        width: 30vh;
+        right: 0;
+        top:0;
+    }
+    
+    @keyframes floatAnimation {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    .slider-controls {
+        bottom: 15px;
+    }
+    
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+/* Mobile nhỏ - Màn hình từ 320px trở xuống */
+@media screen and (max-width: 320px) {
+    .banner_section {
+        height: 100vh;
+        margin-top: 0;
+    }
+    
+    .banner {
+        height: 100px;
+        top: 50%;
+        transform: translateY(-50px);
+    }
+    
+    .banner_text {
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-left: -20px;
+    }
+    
+    #flip {
+        height: 35px;
+    }
+    
+    #flip > div > div {
+        height: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .banner_img {
+        height: 30vh;
+        width: 30vh;
+    }
+    
+    .banner_img2,
+    .banner_img3 {
+        height: 25vh;
+        width: 25vh;
+    }
+    
+    @keyframes show {
+        0% {margin-top: -100px;}
+        5% {margin-top: -60px;}
+        33% {margin-top: -60px;}
+        38% {margin-top: -20px;}
+        66% {margin-top: -20px;}
+        71% {margin-top: 0px;}
+        99.99% {margin-top: 0px;}
+        100% {margin-top: -100px;}
+    }
+}
