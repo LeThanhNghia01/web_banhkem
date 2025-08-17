@@ -4,6 +4,7 @@ import "./Home.css";
 import { slideBanh1, slideBanh2, slideBanh3, bg } from "../../assets/images";
 
 export default function Home() {
+  //banner
   const [currentSlide, setCurrentSlide] = useState(0);
   const bannerImagesRef = useRef(null);
   const bannerRef = useRef(null);
@@ -11,17 +12,14 @@ export default function Home() {
   const bgColors = ['#BB8843', '#721D64', '#615B1A'];
   const totalSlides = 3;
 
-  // Auto-rotate slides
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 3500);
 
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, [currentSlide]);
 
-  // Update slider when currentSlide changes
   useEffect(() => {
     updateSlider();
   }, [currentSlide]);

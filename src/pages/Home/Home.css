@@ -226,8 +226,8 @@ body {
     }
     
     .banner_img {
-        height: 40vh;
-        width: 40vh;
+        height: 35vh;
+        width: 35vh;
         top: 0;
     }
     
@@ -301,15 +301,15 @@ body {
     }
     
     .banner_img {
-        height: 30vh;
-        width: 30vh;
+        height: 25vh;
+        width: 25vh;
         top: 0;
     }
     
     .banner_img2,
     .banner_img3 {
-        height: 30vh;
-        width: 30vh;
+        height: 25vh;
+        width: 25vh;
         right: 0;
         top:0;
     }
@@ -364,8 +364,8 @@ body {
     }
     
     .banner_img {
-        height: 30vh;
-        width: 30vh;
+        height: 25vh;
+        width: 25vh;
     }
     
     .banner_img2,
