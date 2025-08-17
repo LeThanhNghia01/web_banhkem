@@ -4,6 +4,10 @@ import slideBanh1 from "../../assets/images/silde/slideBanh.png";
 import slideBanh2 from "../../assets/images/silde/banhvietquoc.png";
 import slideBanh3 from "../../assets/images/silde/matcha.png";
 //Content Products
+import chocolate1 from "../../assets/images/Donut/chocolate1.png";
+import chocolate2 from "../../assets/images/Donut/chocolate2.png";
+import chocolate3 from "../../assets/images/Donut/chocolate3.png";
+import chocolate4 from "../../assets/images/Donut/chocolate4.png";
 import donut1 from "../../assets/images/Donut/donut1.jpg";
 import donut2 from "../../assets/images/Donut/donut2.jpg";
 import donut3 from "../../assets/images/Donut/donut3.jpg";
@@ -25,4 +29,8 @@ export {
   donut5,
   donut6,
   donut7,
+  chocolate1,
+  chocolate2,
+  chocolate3,
+  chocolate4,
 };

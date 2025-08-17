@@ -254,13 +254,12 @@ body {
 /* Mobile - Màn hình từ 480px trở xuống - FIXED VERSION */
 @media screen and (max-width: 480px) {
     .banner_section {
-        height: 100vh;
-        margin-top: 0;
+        height: 40vh;
     }
     
     .banner {
         height: 120px;
-        top: 25%;
+        top: 55%;
         transform: translateY(-60px);
     }
     
@@ -294,7 +293,7 @@ body {
     }
     
     .banner_images {
-        top: -25%;
+        top: 5%;
     }
     
     .banner_image {
@@ -335,4 +334,117 @@ body {
         width: 10px;
         height: 10px;
     }
+}
+.content_products_donut{
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    margin-bottom: 50px;
+  }
+.content_banhvong{
+    text-align: center;
+    font-family: 'Pacifico', sans-serif;  
+    font-size: 18px;
+}
+.content_banhvong p{
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.content_products{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    margin: 0;
+}
+.banhvong {
+    padding-top: 100px;           /* Khoảng cách từ trên xuống */
+    position: relative;           /* Định vị tương đối */
+    height: 500px;                /* Chiều cao cố định */
+    width: 100%;                  /* Chiều rộng 100% */
+    max-width: 1200px;            /* Chiều rộng tối đa */
+    margin: 0 auto;               /* Căn giữa container */
+}
+
+.link_donut{
+    font-weight: bold;
+    top:-180px;
+    left:110px;
+    position: relative;
+    background-color: #ffffff;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 50px;
+    padding: 10px 20px;          /* Padding cho nút */
+    z-index: 1;
+}
+
+.image_banhvong {
+    position: relative;           /* Định vị tương đối */
+    height: 100%;                 /* Chiều cao 100% */
+    width: 100%;                  /* Chiều rộng 100% */
+}
+
+.image_chocolate1 {
+    height: 275px;                /* Chiều cao cố định */
+    position: relative;           /* Định vị tương đối */
+    z-index: 1;                   /* Lớp hiển thị */
+    top: -125px;                    /* Cách top 10px */
+    left: 165px;                
+}
+
+.image_chocolate2 {
+    height: 305px;                /* Chiều cao cố định */
+    position: relative;           /* Định vị tương đối */
+    z-index: 1;                   /* Lớp hiển thị */
+    top: -52px;                    /* Cách top 90px */
+    left: -148px;                  /* Cách left 192px */
+}
+
+.image_chocolate3 {
+    height: 380px;                /* Chiều cao cố định */
+    width: 220px;                 /* Chiều rộng cố định */
+    left: -45px;                  /* Cách left 210px */
+    top:-100px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    position: absolute;           /* Định vị tuyệt đối */
+}
+
+/* Thiết lập cho hình ảnh chocolate 4 */
+.image_chocolate4 {
+    height: 380px;                   /* Chiều cao cố định */
+    width: 220px;                    /* Chiều rộng cố định */
+    position: absolute;           /* Định vị tuyệt đối */
+    top:-100px;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:50px;
+    left: 170px;                  /* Cách left 500px */
+}
+
+.reveal {
+    opacity: 0;                    /* Ban đầu là ẩn (trong suốt) */
+    transform: translateY(50px);   /* Dịch chuyển xuống 50px */
+    transition: all 1s ease;       /* Hiệu ứng chuyển đổi mượt mà */
+}
+
+.reveal.active {
+    opacity: 1;                    /* Hiện ra dần dần */
+    transform: translateY(0);      /* Dịch chuyển về vị trí gốc */
+}
+
+.image_chocolate1.reveal {
+    transition-delay: 0.2s;        /* Trễ 0.2 giây */
+}
+
+.image_chocolate2.reveal {
+    transition-delay: 0.4s;        /* Trễ 0.4 giây */
+}
+
+.image_chocolate3.reveal {
+    transition-delay: 0.6s;        /* Trễ 0.6 giây */
+}
+
+.image_chocolate4.reveal {
+    transition-delay: 0.8s;        /* Trễ 0.8 giây */
 }
