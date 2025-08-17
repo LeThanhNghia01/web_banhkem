@@ -1,7 +1,7 @@
 // Home.jsx
 import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
-import { slideBanh1, slideBanh2, slideBanh3, bg } from "../../assets/images";
+import { slideBanh1, slideBanh2, slideBanh3 } from "../../assets/images";
 
 export default function Home() {
   //banner
@@ -40,14 +40,7 @@ export default function Home() {
   };
 
   return (
-    <div
-      className="banner_section"
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    >
+    <div className="banner_section">
       <div className="banner" ref={bannerRef}>
         <div className="banner_text">
           Thưởng thức
@@ -83,5 +76,6 @@ export default function Home() {
         ))}
       </div>
     </div>
+    //thêm content_products
   );
 }

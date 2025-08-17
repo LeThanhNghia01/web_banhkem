@@ -3,8 +3,7 @@ body {
     font-family: 'Raleway', sans-serif;  
     overflow-x: hidden;    
     background-image: url("../../assets/images/bg.jpg");
-    background-size: cover;
-    background-position: center;
+   
 }
 
 /* THIẾT LẬP CHO PHẦN BANNER */
@@ -19,7 +18,7 @@ body {
     margin-top: 0;          /* Bỏ margin-top để full màn hình */
     background-color: rgba(255, 255, 255, 0.8);
     background-blend-mode: overlay; 
-    box-sizing: border-box; /* Đảm bảo tính toán kích thước chính xác */
+    box-sizing: border-box;
 }
 
 /* Thanh ngang chứa văn bản trong banner */
@@ -179,7 +178,7 @@ body {
     width: 12px;                   
     height: 12px;                  
     border-radius: 50%;            
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;               
     transition: background-color 0.3s;  
 }
@@ -196,7 +195,8 @@ body {
     .banner_section {
         height: 100vh;
         margin-top: 0;
-    }
+
+         }
     
     .banner {
         height: 150px;
@@ -207,7 +207,8 @@ body {
     .banner_text {
         font-size: 14px;
         letter-spacing: 3px;
-        margin-left: -100px;
+        margin-left: -90px;
+        text-align: center;
     }
     
     #flip {
@@ -259,7 +260,7 @@ body {
     
     .banner {
         height: 120px;
-        top: 50%;
+        top: 25%;
         transform: translateY(-60px);
     }
     
@@ -293,7 +294,7 @@ body {
     }
     
     .banner_images {
-        top: 0;
+        top: -25%;
     }
     
     .banner_image {
@@ -333,55 +334,5 @@ body {
     .slider-dot {
         width: 10px;
         height: 10px;
-    }
-}
-/* Mobile nhỏ - Màn hình từ 320px trở xuống */
-@media screen and (max-width: 320px) {
-    .banner_section {
-        height: 100vh;
-        margin-top: 0;
-    }
-    
-    .banner {
-        height: 100px;
-        top: 50%;
-        transform: translateY(-50px);
-    }
-    
-    .banner_text {
-        font-size: 14px;
-        letter-spacing: 1px;
-        margin-left: -20px;
-    }
-    
-    #flip {
-        height: 35px;
-    }
-    
-    #flip > div > div {
-        height: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .banner_img {
-        height: 25vh;
-        width: 25vh;
-    }
-    
-    .banner_img2,
-    .banner_img3 {
-        height: 25vh;
-        width: 25vh;
-    }
-    
-    @keyframes show {
-        0% {margin-top: -100px;}
-        5% {margin-top: -60px;}
-        33% {margin-top: -60px;}
-        38% {margin-top: -20px;}
-        66% {margin-top: -20px;}
-        71% {margin-top: 0px;}
-        99.99% {margin-top: 0px;}
-        100% {margin-top: -100px;}
     }
 }
