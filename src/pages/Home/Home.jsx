@@ -175,6 +175,7 @@ export default function Home() {
           </div>
         </div>
         <div className="banhvongs">
+          <div className="spacer"></div>
           <a href="#vd"> <img src={donut1} alt="donut" className="image_banhvongs"/></a>
           <a href="#vd"> <img src={donut2} alt="donut" className="image_banhvongs"/></a>
           <a href="#vd"> <img src={donut3} alt="donut" className="image_banhvongs"/></a>

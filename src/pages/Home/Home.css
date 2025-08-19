@@ -479,7 +479,11 @@ body {
         z-index:2;
         border: 2px solid #647549; 
     }
-    
+    .spacer {
+        width:520%;              /* Điều chỉnh khoảng trống theo ý muốn */
+        height: 145px;            /* Cùng chiều cao với ảnh */
+        flex-shrink: 0;           /* Không cho phép thu nhỏ */
+    }
 
     /* BÁNH VÒNG - TABLET */
     .content_banhvong h1 {
@@ -525,7 +529,7 @@ body {
         flex-wrap: nowrap;        /* Không cho xuống hàng */
         overflow-x: auto;         /* Cho phép scroll ngang */
         gap: 10px;
-        width: 100%;
+        width: auto;
         margin: 0 auto;
         padding: 15px;
         background-color: #E9E0CF;
@@ -561,6 +565,9 @@ body {
         border-radius: 20px;
         object-fit: cover;
         flex-shrink: 0;           /* Không cho thu nhỏ */
+    }
+    first-donut {
+        margin-left: 150px;        /* Tạo khoảng trống 50px trước ảnh đầu */
     }
     
 }
