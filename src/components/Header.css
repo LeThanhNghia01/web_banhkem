@@ -58,9 +58,7 @@
 .nav_links {
     display: flex;
     gap: 2rem;
-    align-items: center;
-    position: relative;
-    left: 240px;
+    align-items:center;
     top: -15px;
     font-size: 18px;
 }

@@ -202,8 +202,8 @@ body {
 
 /* CONTENT PRODUCTS SECTION */
 .content_products {
-    position: relative;     
-    min-height: 100vh;
+    position: relative;    
+    height: 100vh;
     width: 100vw;
     left: 50%;
     margin-left: -50vw;
@@ -222,6 +222,10 @@ body {
     font-size: 18px;
     margin-bottom: 40px;
     padding: 0 20px;
+    background-color: rgba(248, 224, 195, 0.8); 
+    margin-bottom: -40px;
+    position: relative;
+    border-radius: 50px;
 }
 
 .content_banhvong h1 {
@@ -569,7 +573,44 @@ body {
     first-donut {
         margin-left: 150px;        /* Tạo khoảng trống 50px trước ảnh đầu */
     }
+    /*==============bánh kem Mobile===========*/
+    .content_cake{
+        text-align: center;
+        font-size: 23px;
+        font-family: 'Pacifico', sans-serif;  
+        background-color: rgba(248, 224, 195, 0.8); 
+        top:-70px;
+        position:relative;
+        width:50%;
+        border-radius: 50px;
+        margin-bottom: -40px;
+    }
     
+.content_cake h1 {
+    font-size: 2.5rem;
+    color: #BB8843;
+    margin-bottom: 20px;
+}
+
+.content_cake p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.content_products_cake {
+    position: relative;     
+    min-height: 100vh;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    overflow: hidden;       
+    margin-top: 100px;
+    background-color: rgba(255, 255, 255, 0.9);
+    background-blend-mode: overlay; 
+    box-sizing: border-box;
+    padding: 50px 20px;
+}
 }
 /* MOBILE RESPONSIVE - 480px và nhỏ hơn */
 @media screen and (max-width: 480px) {
@@ -657,6 +698,7 @@ body {
     /* BÁNH VÒNG - MOBILE */
     .content_products {
         padding: 30px 10px;
+        height: 50vh
     }
     
     .content_banhvong {

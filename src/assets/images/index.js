@@ -15,6 +15,11 @@ import donut4 from "../../assets/images/Donut/donut4.jpg";
 import donut5 from "../../assets/images/Donut/donut5.jpg";
 import donut6 from "../../assets/images/Donut/donut6.jpg";
 import donut7 from "../../assets/images/Donut/donut7.jpg";
+//banh kem
+import nenbk1 from "../../assets/images/BanhKem/bk1.png";
+import nenbk2 from "../../assets/images/BanhKem/bk2.png";
+import nenbk3 from "../../assets/images/BanhKem/bk3.png";
+import nenbk4 from "../../assets/images/BanhKem/bk4.png";
 
 export {
   banh1,
@@ -33,4 +38,8 @@ export {
   chocolate2,
   chocolate3,
   chocolate4,
+  nenbk1,
+  nenbk2,
+  nenbk3,
+  nenbk4,
 };
