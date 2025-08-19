@@ -215,7 +215,7 @@ body {
     padding: 50px 20px;
 }
 
-/* BÁNH VÒNG SECTION - DESKTOP */
+/* =================BÁNH VÒNG SECTION - DESKTOP */
 .content_banhvong {
     font-family: 'Pacifico', sans-serif;  
     text-align: center;
@@ -238,23 +238,20 @@ body {
 }
 
 .banhvong {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 100px;           /* Khoảng cách từ trên xuống */
+    position: relative;           /* Định vị tương đối */
+    height: 500px;                /* Chiều cao cố định */
+    width: 100%;                  /* Chiều rộng 100% */
+    max-width: 1200px;            /* Chiều rộng tối đa */
+    margin: 0 auto;   
 }
 
 .image_banhvong {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;           /* Định vị tương đối */
+    height: 100%;                 /* Chiều cao 100% */
+    width: 100%;   
+    margin-left: -100px;   
+    top: -60px;            /* Định vị từ trên xuống */    
 }
 
 .image_chocolate1 {
@@ -262,8 +259,8 @@ body {
     width: auto;
     position: absolute;
     z-index: 2;
-    top: 10px;
-    right: 100px;
+    top: 80px;
+    right: 770px;
     transition: transform 0.3s ease;
 }
 
@@ -272,8 +269,8 @@ body {
     width: auto;
     position: absolute;
     z-index: 2;
-    top: 80px;
-    left: 100px;
+    top: 120px;
+    left: 120px;
     transition: transform 0.3s ease;
 }
 
@@ -293,7 +290,7 @@ body {
     height: 380px;
     width: 220px;
     position: absolute;
-    right: 50px;
+    right: 712px;
     top: 60px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -306,10 +303,32 @@ body {
     transform: scale(1.1);
 }
 
+
+.banhvongs {
+    display: flex;
+    flex-wrap: wrap;         /* Cho phép xuống hàng */
+    justify-content: center; /* Căn giữa */
+    gap: 10px;             
+    max-width: 850px;      
+    margin: 0 auto;        
+    background-color: #E9E0CF;
+    border-radius: 30px;
+    top:-500px;
+    left: 250px;
+    position: relative;
+}
+.image_banhvongs{
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
+    object-fit: cover; 
+    overflow: hidden;  
+    
+}
 .link_donut {
     position: absolute;
-    bottom: -80px;
-    left: 50%;
+    top:370px;
+    left: 23%;
     transform: translateX(-50%);
     background-color: #ebe3d3;
     text-decoration: none;
@@ -319,9 +338,9 @@ body {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     transition: background-color 0.3s ease;
+    border: 2px solid #b1a46c;
+    z-index: 2;
 }
-
-
 /* TABLET RESPONSIVE - 768px và nhỏ hơn */
 @media screen and (max-width: 768px) {
     .banner_section {
@@ -379,6 +398,88 @@ body {
         99.99% {margin-top: 0px;}
         100% {margin-top: -175px;}
     }
+    .banhvong {
+        position: relative;
+        height: 500px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .image_banhvong {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .image_chocolate1 {
+        height: 275px;
+        width: auto;
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        right: 100px;
+        transition: transform 0.3s ease;
+    }
+    
+    .image_chocolate2 {
+        height: 305px;
+        width: auto;
+        position: absolute;
+        z-index: 2;
+        top: 80px;
+        left: 100px;
+        transition: transform 0.3s ease;
+    }
+    
+    .image_chocolate3 {
+        height: 380px;
+        width: 220px;
+        position: absolute;
+        left: 50px;
+        top: 60px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        object-fit: cover;
+        z-index: 1;
+    }
+    
+    .image_chocolate4 {
+        height: 380px;
+        width: 220px;
+        position: absolute;
+        right: 50px;
+        top: 60px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        object-fit: cover;
+        z-index: 1;
+    }
+    
+    .image_chocolate1:hover,
+    .image_chocolate2:hover {
+        transform: scale(1.1);
+    }
+    
+    .link_donut {
+        top:-20px;
+        font-size: 0.55rem;
+        font-weight: bold;
+        left:-10%;
+        position: relative;
+        background-color: #ebe3d3;
+        text-decoration: none;
+        color: #000000;
+        z-index:2;
+        border: 2px solid #647549; 
+    }
+    
 
     /* BÁNH VÒNG - TABLET */
     .content_banhvong h1 {
@@ -569,7 +670,8 @@ body {
     .banhvong {
         height: 350px;
         padding: 0 10px;
-        margin-left: -15px;
+        margin-left: 30px;
+        top: 60px;
     }
      /*banh*/
     .image_chocolate1 {
@@ -603,53 +705,19 @@ body {
     }
     
     .link_donut {
-        bottom: -60px;
-        font-size: 0.9rem;
+        top:-17px;
+        font-size: 0.55rem;
         font-weight: bold;
-        left:25%;
+        left:-17%;
         position: relative;
         background-color: #ebe3d3;
         text-decoration: none;
         color: #000000;
+        z-index:2;
+        border: 2px solid #d85353; 
+        padding: 3px 6px;  
+        display: inline-block;
     }
  
 }
 
-/* EXTRA SMALL MOBILE - 320px và nhỏ hơn */
-@media screen and (max-width: 320px) {
-    .content_banhvong h1 {
-        font-size: 1.3rem;
-    }
-    
-    .banhvong {
-        height: 300px;
-    }
-    
-    .image_chocolate1 {
-        height: 100px;
-        top: 40px;
-        right: 15px;
-    }
-    
-    .image_chocolate2 {
-        height: 110px;
-        top: 90px;
-        left: 15px;
-    }
-    
-    .image_chocolate3 {
-        height: 200px;
-        width: 120px;
-        left: 5px;
-        top: 50px;
-    }
-    
-    .image_chocolate4 {
-        height: 200px;
-        width: 120px;
-        right: 5px;
-        top: 50px;
-    }
-    
-  
-}
