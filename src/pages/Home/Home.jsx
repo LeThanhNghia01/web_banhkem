@@ -1,7 +1,15 @@
 // Home.jsx
 import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
-import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, donut5, donut6, donut7, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3,nenbk4 } from "../../assets/images";
+import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, donut5, donut6, donut7, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3, bkdau,
+  bkdg,
+  bkmix,
+  bkgd,
+  bktang,
+  bkvq,
+  bkjj,
+  bkhh,
+  bktao, } from "../../assets/images";
 
 export default function Home() {
   // Banner
@@ -183,6 +191,14 @@ export default function Home() {
           <a href="#vd"> <img src={donut5} alt="donut" className="image_banhvongs"/></a>
           <a href="#vd"> <img src={donut6} alt="donut" className="image_banhvongs"/></a>
           <a href="#vd"> <img src={donut7} alt="donut" className="image_banhvongs"/></a>
+          <a href="#vd" className="arrow-link">
+          <div className="arrow-circle">
+                    <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>     
+                  <span className="arrow-text">Xem thêm</span>
+             </a>
         </div>
       </div>
       <div class="content_products_cake">
@@ -190,16 +206,33 @@ export default function Home() {
                 <h1>Bánh Kem</h1>
                 <p>Bánh kem mềm mịn, ngọt ngào, được trang trí tinh tế.</p>
             </div>
-            {/* <div class="cake">
-                <div class="image_cakes">
-                    <img src="/image/BanhKem/bk1.png" alt="Bánh Kem" class="img_cake reveal"/>
-                    <img src="/image/BanhKem/bk2.png" alt="Bánh Kem" class="img_cake reveal"/>
-                    <img src="/image/BanhKem/bk3.png" alt="Bánh Kem" class="img_cake reveal"/>
-                    <img src="/image/BanhKem/bk4.png" alt="Bánh Kem" class="img_cake reveal"/>
+            <div class="cake">
+                <div class="image_cake">
+                    <img src={nenbk1} alt="Bánh Kem" class="img_cake reveal"/>
+                    <img src={nenbk2} alt="Bánh Kem" class="img_cake reveal"/>
+                    <img src={nenbk3} alt="Bánh Kem" class="img_cake reveal"/>
                 </div>
                 <a href="#vd" class="link_cake ">Xem Thêm</a>
-            </div> */}
-           
+            </div>
+            <div class="cakes">
+                <a href="#vd"><img src={bkdau} alt="donut" class="image_cakes"/></a>
+                <a href="#vd"><img src={bkvq} alt="donut" class="image_cakes"/></a>
+                <a href="#vd"><img src={bkgd} alt="donut" class="image_cakes"/></a>
+                <a href="#vd"><img src={bkhh} alt="donut" class="image_cakes"/></a>
+                <a href="#vd"><img src={bkjj} alt="donut" class="image_cakes"/></a>
+                <a href="#vd"><img src={bkmix} alt="donut" class="image_cakes"/></a>
+                <a href="#vd"><img src={bktang} alt="donut" class="image_cakes"/></a>
+                <div className="view-more-arrow">
+                <a href="#vd" className="arrow-link">
+                  <div className="arrow-circle">
+                    <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span className="arrow-text">Xem thêm</span>
+                </a>
+          </div>
+            </div>
        </div>
       
     </div>

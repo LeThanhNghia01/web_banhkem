@@ -34,7 +34,31 @@ body {
 .image_chocolate4.reveal {
     transition-delay: 0.8s;
 }
+.content_cake{
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Pacifico', sans-serif;  
+    background-color: rgba(248, 224, 195, 0.8); 
+    top:-70px;
+    padding: 0 20px;
+    position:relative;
+    width:auto;
+    border-radius: 50px;
+    margin-bottom: -40px;
+}
 
+.content_cake h1 {
+    font-size: 2.5rem;
+    color: #BB8843;
+    margin-bottom: 20px;
+}
+
+.content_cake p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
 /* THIẾT LẬP CHO PHẦN BANNER */
 .banner_section {
     position: relative;     
@@ -345,6 +369,47 @@ body {
     border: 2px solid #b1a46c;
     z-index: 2;
 }
+/*======================== desk top bánh kem*/ 
+
+.content_products_cake {
+    position: relative;     
+    min-height: 100vh;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    overflow: hidden;       
+    margin-top: -0.5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    background-blend-mode: overlay; 
+    box-sizing: border-box;
+    padding: 50px 20px;
+}
+
+.content_products_cake h1 {
+    font-size: 2.5rem;
+    color: #BB8843;
+    margin-bottom: 20px;
+}
+.content_products_cake p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.image_cakes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.img_cake {
+    height: 200px;
+    width: 185px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s;
+
+}
 /* TABLET RESPONSIVE - 768px và nhỏ hơn */
 @media screen and (max-width: 768px) {
     .banner_section {
@@ -484,7 +549,7 @@ body {
         border: 2px solid #647549; 
     }
     .spacer {
-        width:520%;              /* Điều chỉnh khoảng trống theo ý muốn */
+        width:560%;              /* Điều chỉnh khoảng trống theo ý muốn */
         height: 145px;            /* Cùng chiều cao với ảnh */
         flex-shrink: 0;           /* Không cho phép thu nhỏ */
     }
@@ -544,27 +609,16 @@ body {
         position: relative;
         box-sizing: border-box;
         
-        /* Style cho scrollbar */
-        scrollbar-width: thin;
-        scrollbar-color: #BB8843 #E9E0CF;
+     
     }
     
     .banhvongs::-webkit-scrollbar {
-        height: 6px;
+        display: none;
     }
     
-    .banhvongs::-webkit-scrollbar-track {
-        background: #E9E0CF;
-        border-radius: 10px;
-    }
-    
-    .banhvongs::-webkit-scrollbar-thumb {
-        background: #BB8843;
-        border-radius: 10px;
-    }
-    
+   
     .image_banhvongs {
-        width: 145px;             /* Kích thước lớn hơn */
+        width: 145px;            
         height: 145px;
         border-radius: 20px;
         object-fit: cover;
@@ -574,43 +628,154 @@ body {
         margin-left: 150px;        /* Tạo khoảng trống 50px trước ảnh đầu */
     }
     /*==============bánh kem Mobile===========*/
-    .content_cake{
-        text-align: center;
-        font-size: 23px;
-        font-family: 'Pacifico', sans-serif;  
-        background-color: rgba(248, 224, 195, 0.8); 
-        top:-70px;
-        position:relative;
-        width:50%;
-        border-radius: 50px;
-        margin-bottom: -40px;
-    }
     
-.content_cake h1 {
-    font-size: 2.5rem;
-    color: #BB8843;
-    margin-bottom: 20px;
-}
+    .content_products_cake {
+        position: relative;     
+        min-height: 100vh;
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+        overflow: hidden;       
+        margin-top: -0.5px;
+        background-color: rgba(255, 255, 255, 0.9);
+        background-blend-mode: overlay; 
+        box-sizing: border-box;
+        padding: 50px 20px;
+    }
 
-.content_cake p {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-}
-.content_products_cake {
-    position: relative;     
-    min-height: 100vh;
-    width: 100vw;
-    left: 50%;
-    margin-left: -50vw;
-    overflow: hidden;       
-    margin-top: 100px;
-    background-color: rgba(255, 255, 255, 0.9);
-    background-blend-mode: overlay; 
-    box-sizing: border-box;
-    padding: 50px 20px;
-}
+    .content_products_cake h1 {
+        font-size: 2.5rem;
+        color: #BB8843;
+        margin-bottom: 20px;
+    }
+    .content_products_cake p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .cake {
+        position: relative;
+        left:-10px;
+        height: 100%; 
+        width: 100%;
+        max-width: 434px; 
+        background-color: #E9E0CF;
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+
+    
+    }
+    .cakes{
+        display: flex; 
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        gap:10px;
+        margin-top: 20px;
+        background-color: #E9E0CF;
+        border-radius: 20px;
+        padding: 15px;
+    }
+    .cakes::-webkit-scrollbar{display: none;}
+    .image_cakes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1px;
+        width: 155px;            
+        height: 155px;
+    }
+    .image_cake{
+        display: flex;       
+        gap: 15px;     
+        border-radius: 20px;     
+        justify-content: center;
+    }
+    .img_cake {
+        height: 120px;
+        width: 110px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+    .link_cake{
+        top:10px;
+        font-size: 0.55rem;
+        font-weight: bold;
+        width: 30%;
+        left: 32.5%;
+        text-align: center;
+        position: relative;
+        background-color: #ebe3d3;
+        text-decoration: none;
+        color: #000000;
+        z-index:2;
+        border: 2px solid #d85353; 
+        padding: 5px 6px;  
+        display: inline-block;
+        border-radius: 25px;
+    }
+    .view-more-arrow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 155px;
+        height: 155px;
+        flex-shrink: 0;
+        margin-left: 10px;
+    }
+        
+    .arrow-link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .arrow-circle {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #BB8843, #D4A574);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(187, 136, 67, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .arrow-icon {
+        width: 24px;
+        height: 24px;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .arrow-text {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #BB8843;
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .arrow-link:hover .arrow-circle {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(187, 136, 67, 0.4);
+    }
+
+    .arrow-link:hover .arrow-icon {
+        transform: translateX(3px);
+    }
+
+    .arrow-link:hover .arrow-text {
+        color: #8B6914;
+    }
 }
 /* MOBILE RESPONSIVE - 480px và nhỏ hơn */
 @media screen and (max-width: 480px) {

@@ -20,7 +20,15 @@ import nenbk1 from "../../assets/images/BanhKem/bk1.png";
 import nenbk2 from "../../assets/images/BanhKem/bk2.png";
 import nenbk3 from "../../assets/images/BanhKem/bk3.png";
 import nenbk4 from "../../assets/images/BanhKem/bk4.png";
-
+import bkdau from "../../assets/images/BanhKem/bkdau.jpg";
+import bkdg from "../../assets/images/BanhKem/bkdg.jpg";
+import bkmix from "../../assets/images/BanhKem/bkmix.jpg";
+import bkgd from "../../assets/images/BanhKem/bkgd.jpg";
+import bktang from "../../assets/images/BanhKem/bktang.jpg";
+import bkvq from "../../assets/images/BanhKem/bkvq.jpg";
+import bkjj from "../../assets/images/BanhKem/bkjj.jpg";
+import bkhh from "../../assets/images/BanhKem/bkhh.jpg";
+import bktao from "../../assets/images/BanhKem/bktao.jpg";
 export {
   banh1,
   bg,
@@ -42,4 +50,13 @@ export {
   nenbk2,
   nenbk3,
   nenbk4,
+  bkdau,
+  bkdg,
+  bkmix,
+  bkgd,
+  bktang,
+  bkvq,
+  bkjj,
+  bkhh,
+  bktao,
 };
