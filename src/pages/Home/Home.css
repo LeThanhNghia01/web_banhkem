@@ -59,6 +59,65 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+.view-more-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 155px;
+    height: 155px;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+    
+.arrow-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.arrow-circle {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #BB8843, #D4A574);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(187, 136, 67, 0.3);
+    transition: all 0.3s ease;
+}
+
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.arrow-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #BB8843;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.arrow-link:hover .arrow-circle {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(187, 136, 67, 0.4);
+}
+
+.arrow-link:hover .arrow-icon {
+    transform: translateX(3px);
+}
+
+.arrow-link:hover .arrow-text {
+    color: #8B6914;
+}
 /* THIẾT LẬP CHO PHẦN BANNER */
 .banner_section {
     position: relative;     
@@ -250,6 +309,7 @@ body {
     margin-bottom: -40px;
     position: relative;
     border-radius: 50px;
+    
 }
 
 .content_banhvong h1 {
@@ -272,6 +332,7 @@ body {
     width: 100%;                  /* Chiều rộng 100% */
     max-width: 1200px;            /* Chiều rộng tối đa */
     margin: 0 auto;   
+    cursor: pointer;
 }
 
 .image_banhvong {
@@ -336,14 +397,16 @@ body {
     display: flex;
     flex-wrap: wrap;         /* Cho phép xuống hàng */
     justify-content: center; /* Căn giữa */
-    gap: 10px;             
+    gap: 15px;             
     max-width: 850px;      
     margin: 0 auto;        
     background-color: #E9E0CF;
     border-radius: 30px;
     top:-500px;
     left: 250px;
+    align-items: center;
     position: relative;
+    padding: 20px 0;
 }
 .image_banhvongs{
     width: 180px;
@@ -369,46 +432,115 @@ body {
     border: 2px solid #b1a46c;
     z-index: 2;
 }
-/*======================== desk top bánh kem*/ 
 
-.content_products_cake {
-    position: relative;     
-    min-height: 100vh;
-    width: 100vw;
-    left: 50%;
-    margin-left: -50vw;
-    overflow: hidden;       
-    margin-top: -0.5px;
-    background-color: rgba(255, 255, 255, 0.9);
-    background-blend-mode: overlay; 
-    box-sizing: border-box;
-    padding: 50px 20px;
-}
+/* ======================== DESKTOP - BÁNH KEM ======================== */
+@media screen and (min-width: 769px) {
+    .content_products_cake {
+        position: relative;
+        min-height: 100vh;
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+        overflow: hidden;
+        margin-top: -0.5px;
+        background-color: rgba(255, 255, 255, 0.9);
+        background-blend-mode: overlay;
+        box-sizing: border-box;
+        padding: 50px 20px;
+    }
 
-.content_products_cake h1 {
-    font-size: 2.5rem;
-    color: #BB8843;
-    margin-bottom: 20px;
-}
-.content_products_cake p {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-}
-.image_cakes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-.img_cake {
-    height: 200px;
-    width: 185px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: 0.3s;
+    .content_products_cake h1 {
+        font-size: 2.5rem;
+        color: #BB8843;
+        margin-bottom: 20px;
+    }
 
+    .content_products_cake p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .image_cakes {
+        width: 200px;
+        height: 200px;
+        border-radius: 30px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .image_cake {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+        justify-items: center;
+    }
+
+    .img_cake:nth-child(3) {
+        grid-column: 1 / -1; /* Chiếm cả 2 cột */
+        justify-self: center;
+    }
+
+    .cake {
+        position: relative;
+        left: 6.5%;
+        height: 100%;
+        width: 100%;
+        max-width: 400px;
+        background-color: #E9E0CF;
+        border-radius: 50px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .img_cake {
+        height: 200px;
+        width: 190px;
+        object-fit: cover;
+        border-radius: 20px;
+        transition: 0.3s;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .link_cake {
+        height: 50px;
+        width: 135px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        background-color: #ebe3d3;
+        text-decoration: none;
+        color: #000000;
+        border-radius: 25px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        border: 2px solid #b1a46c;
+        z-index: 2;
+        margin-top: -60px;
+        line-height: 50px; /* căn giữa theo chiều dọc */
+    }
+
+    .cakes {
+        display: flex;
+        flex-wrap: wrap; /* Cho phép xuống hàng */
+        justify-content: center; /* Căn giữa */
+        gap: 15px;
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: #E9E0CF;
+        border-radius: 30px;
+        top: -465px;
+        padding: 20px;
+        left: 250px;
+        align-items: center;
+        position: relative;
+    }
 }
 /* TABLET RESPONSIVE - 768px và nhỏ hơn */
 @media screen and (max-width: 768px) {
@@ -476,6 +608,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+       
     }
     
     .image_banhvong {
@@ -608,8 +741,7 @@ body {
         margin-left: 170px;
         position: relative;
         box-sizing: border-box;
-        
-     
+        align-items: center;
     }
     
     .banhvongs::-webkit-scrollbar {
@@ -665,8 +797,6 @@ body {
         padding: 10px;
         display: flex;
         flex-direction: column;
-
-    
     }
     .cakes{
         display: flex; 
@@ -717,65 +847,7 @@ body {
         display: inline-block;
         border-radius: 25px;
     }
-    .view-more-arrow {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-width: 155px;
-        height: 155px;
-        flex-shrink: 0;
-        margin-left: 10px;
-    }
-        
-    .arrow-link {
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .arrow-circle {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #BB8843, #D4A574);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(187, 136, 67, 0.3);
-        transition: all 0.3s ease;
-    }
-
-    .arrow-icon {
-        width: 24px;
-        height: 24px;
-        color: white;
-        transition: transform 0.3s ease;
-    }
-
-    .arrow-text {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #BB8843;
-        text-align: center;
-        font-family: 'Raleway', sans-serif;
-    }
-
-    .arrow-link:hover .arrow-circle {
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(187, 136, 67, 0.4);
-    }
-
-    .arrow-link:hover .arrow-icon {
-        transform: translateX(3px);
-    }
-
-    .arrow-link:hover .arrow-text {
-        color: #8B6914;
-    }
+   
 }
 /* MOBILE RESPONSIVE - 480px và nhỏ hơn */
 @media screen and (max-width: 480px) {

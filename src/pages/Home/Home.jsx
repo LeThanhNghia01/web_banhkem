@@ -214,24 +214,24 @@ export default function Home() {
                 </div>
                 <a href="#vd" class="link_cake ">Xem Thêm</a>
             </div>
-            <div class="cakes">
-                <a href="#vd"><img src={bkdau} alt="donut" class="image_cakes"/></a>
-                <a href="#vd"><img src={bkvq} alt="donut" class="image_cakes"/></a>
-                <a href="#vd"><img src={bkgd} alt="donut" class="image_cakes"/></a>
-                <a href="#vd"><img src={bkhh} alt="donut" class="image_cakes"/></a>
-                <a href="#vd"><img src={bkjj} alt="donut" class="image_cakes"/></a>
-                <a href="#vd"><img src={bkmix} alt="donut" class="image_cakes"/></a>
-                <a href="#vd"><img src={bktang} alt="donut" class="image_cakes"/></a>
-                <div className="view-more-arrow">
-                <a href="#vd" className="arrow-link">
-                  <div className="arrow-circle">
-                    <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span className="arrow-text">Xem thêm</span>
-                </a>
-          </div>
+              <div class="cakes">
+                  <a href="#vd"><img src={bkdau} alt="Bánh kem" class="image_cakes"/></a>
+                  <a href="#vd"><img src={bkvq} alt="Bánh kem" class="image_cakes"/></a>
+                  <a href="#vd"><img src={bkgd} alt="Bánh kem" class="image_cakes"/></a>
+                  <a href="#vd"><img src={bkhh} alt="Bánh kem" class="image_cakes"/></a>
+                  <a href="#vd"><img src={bkjj} alt="Bánh kem" class="image_cakes"/></a>
+                  <a href="#vd"><img src={bkmix} alt="Bánh kem" class="image_cakes"/></a>
+                  <a href="#vd"><img src={bktang} alt="Bánh kem" class="image_cakes"/></a>
+                  <div className="view-more-arrow">
+                  <a href="#vd" className="arrow-link">
+                    <div className="arrow-circle">
+                      <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <span className="arrow-text">Xem thêm</span>
+                  </a>
+            </div>
             </div>
        </div>
       
