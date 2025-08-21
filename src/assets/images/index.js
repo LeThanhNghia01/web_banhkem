@@ -2,7 +2,7 @@ import banh1 from "../../assets/images/banh1.png";
 import bg from "../../assets/images/bg.jpg";
 import slideBanh1 from "../../assets/images/silde/banhchanh.png";
 import slideBanh2 from "../../assets/images/silde/banhvietquoc.png";
-import slideBanh3 from "../../assets/images/silde/matcha.png";
+import slideBanh3 from "../../assets/images/silde/banhmatcha/matcha.png";
 //Content Products
 import chocolate1 from "../../assets/images/Donut/chocolate1.png";
 import chocolate2 from "../../assets/images/Donut/chocolate2.png";

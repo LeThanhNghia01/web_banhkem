@@ -9,12 +9,12 @@ import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, don
   bkvq,
   bkjj,
   bkhh,
-  } from "../../assets/images";
-
+  bktao, } from "../../assets/images";
   export default function Home() {
     // Banner state
     const [currentSlide, setCurrentSlide] = useState(0);
     const bannerRef = useRef(null);
+    const revealedElementsRef = useRef(new Set());
   
     const bgColors = ["#BB8843", "#721D64", "#615B1A"];
     const totalSlides = 3;
@@ -43,7 +43,55 @@ import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, don
     const goToSlide = (index) => {
       setCurrentSlide(index);
     };
+    // Updated reveal on scroll functionality
+    useEffect(() => {
+      function revealOnScroll() {
+        let reveals = document.querySelectorAll('.reveal');
+        
+        for (let i = 0; i < reveals.length; i++) {
+          let windowHeight = window.innerHeight;
+          let elementTop = reveals[i].getBoundingClientRect().top;
+          let elementVisible = 150;
+          
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          } else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+      
+      function checkReveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        const windowHeight = window.innerHeight;
+        
+        reveals.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+          const elementVisible = 150;
+          
+          if ((elementTop < windowHeight - elementVisible) && (elementBottom > elementVisible)) {
+            element.classList.add('active');
+            revealedElementsRef.current.add(element);
+          } else {
+            if (revealedElementsRef.current.has(element)) {
+              element.classList.remove('active');
+            }
+          }
+        });
+      }
   
+      revealOnScroll();
+      checkReveal();
+      
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('scroll', checkReveal);
+      
+      return () => {
+        window.removeEventListener('scroll', revealOnScroll);
+        window.removeEventListener('scroll', checkReveal);
+      };
+    }, []);
     return (
       <div>
         {/* Banner Section với Fade Effect */}
