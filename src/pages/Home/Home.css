@@ -131,7 +131,6 @@ body {
     background-blend-mode: overlay; 
     box-sizing: border-box;
 }
-
 .banner {
     position: absolute;          
     width: 100%;                 
@@ -141,13 +140,12 @@ body {
     transition: background-color 1s ease;  
     background-color: #BB8843;   
 }
-
 .banner_text {
     position: absolute;          
     width: 100%;                 
     text-align: center;          
     color: #ffffff;              
-    margin-left: -200px;         
+    margin-left: -30%;         
     text-transform: uppercase;   
     font-size: 36px;          
     font-weight: bold;          
@@ -198,20 +196,25 @@ body {
 
 .banner_images {
     position: absolute;            
-    width: 300%;                   
+    width: 100%;                   
     height: 100%;                  
     top: 0;
-    display: flex;                 
-    left: 0;                       
-    transition: left 1s ease-in-out;  
+    left: 0;
 }
 
 .banner_image {
-    width: 33.33%;               
+    position: absolute;
+    width: 100%;               
     height: 100%;                
     display: flex;               
     justify-content: flex-end;   
-    align-items: center;         
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.banner_image.active {
+    opacity: 1;
 }
 
 .banner_img {
@@ -260,29 +263,49 @@ body {
 .banner_image:nth-child(3) .banner_img {
     animation-delay: 1s;          
 }
-
 .slider-controls {
-    position: absolute;           
-    bottom: 20px;                 
-    left: 50%;                    
-    transform: translateX(-50%);  
-    display: flex;                
-    gap: 10px;                    
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
 }
 
-.slider-dot {
-    width: 12px;                   
-    height: 12px;                  
-    border-radius: 50%;            
-    background-color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;               
-    transition: background-color 0.3s;  
+.slider-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
 }
 
-.slider-dot.active {
-    background-color: white;       
+.slider-thumbnail:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
+.slider-thumbnail.active {
+    border-color: white;
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.slider-thumbnail:hover .thumbnail-img {
+    transform: scale(1.1);
+}
 /* CONTENT PRODUCTS SECTION */
 .content_products {
     position: relative;    
@@ -588,7 +611,17 @@ body {
         width: 35vh;
         right: 30px;
     }
+    .slider-controls {
+        gap: 10px;
+        bottom: 15px;
+    }
     
+    .slider-thumbnail {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        border-width: 2px;
+    }
     @keyframes show {
         0% {margin-top: -175px;}
         5% {margin-top: -105px;}
@@ -922,14 +955,24 @@ body {
             transform: translateY(0);
         }
     }
-    
     .slider-controls {
-        bottom: 15px;
+        gap: 8px;
+        bottom: 10px;
     }
     
-    .slider-dot {
-        width: 10px;
-        height: 10px;
+    .slider-thumbnail {
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        border-width: 2px;
+    }
+    
+    .slider-thumbnail.active {
+        transform: scale(1.05);
+    }
+    
+    .slider-thumbnail:hover {
+        transform: scale(1.02);
     }
 
     /* BÁNH VÒNG - MOBILE */

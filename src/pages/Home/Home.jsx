@@ -9,139 +9,85 @@ import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, don
   bkvq,
   bkjj,
   bkhh,
-  bktao, } from "../../assets/images";
+  } from "../../assets/images";
 
-export default function Home() {
-  // Banner
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const bannerImagesRef = useRef(null);
-  const bannerRef = useRef(null);
-  const revealedElementsRef = useRef(new Set());
-
-  const bgColors = ["#BB8843", "#721D64", "#615B1A"];
-  const totalSlides = 3;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3500);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
-
-  useEffect(() => {
-    updateSlider();
-  }, [currentSlide]);
-
-  // Updated reveal on scroll functionality
-  useEffect(() => {
-    function revealOnScroll() {
-      let reveals = document.querySelectorAll('.reveal');
-      
-      for (let i = 0; i < reveals.length; i++) {
-        let windowHeight = window.innerHeight;
-        let elementTop = reveals[i].getBoundingClientRect().top;
-        let elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add("active");
-        } else {
-          reveals[i].classList.remove("active");
-        }
-      }
-    }
-    
-    function checkReveal() {
-      const reveals = document.querySelectorAll('.reveal');
-      const windowHeight = window.innerHeight;
-      
-      reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementBottom = element.getBoundingClientRect().bottom;
-        const elementVisible = 150;
-        
-        if ((elementTop < windowHeight - elementVisible) && (elementBottom > elementVisible)) {
-          element.classList.add('active');
-          revealedElementsRef.current.add(element);
-        } else {
-          if (revealedElementsRef.current.has(element)) {
-            element.classList.remove('active');
-          }
-        }
-      });
-    }
-
-    // Initialize reveal elements on page load
-    revealOnScroll();
-    checkReveal();
-    
-    // Add event listeners
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('scroll', checkReveal);
-    
-    // Cleanup function
-    return () => {
-      window.removeEventListener('scroll', revealOnScroll);
-      window.removeEventListener('scroll', checkReveal);
+  export default function Home() {
+    // Banner state
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const bannerRef = useRef(null);
+  
+    const bgColors = ["#BB8843", "#721D64", "#615B1A"];
+    const totalSlides = 3;
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        nextSlide();
+      }, 6000);
+      return () => clearInterval(interval);
+    }, [currentSlide]);
+  
+    useEffect(() => {
+      updateBackground();
+    }, [currentSlide]);
+  
+    const nextSlide = () => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
     };
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const updateSlider = () => {
-    if (bannerImagesRef.current && bannerRef.current) {
-      bannerImagesRef.current.style.left = `-${currentSlide * 100}%`;
-      bannerRef.current.style.backgroundColor = bgColors[currentSlide];
-    }
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  return (
-    <div>
-      {/* Banner Section */}
-      <div className="banner_section">
-        <div className="banner" ref={bannerRef}>
-          <div className="banner_text">
-            Thưởng thức
-            <div id="flip">
-              <div>
-                <div>Sự tươi mát</div>
+  
+    const updateBackground = () => {
+      if (bannerRef.current) {
+        bannerRef.current.style.backgroundColor = bgColors[currentSlide];
+      }
+    };
+  
+    const goToSlide = (index) => {
+      setCurrentSlide(index);
+    };
+  
+    return (
+      <div>
+        {/* Banner Section với Fade Effect */}
+        <div className="banner_section">
+          <div className="banner" ref={bannerRef}>
+            <div className="banner_text">
+              Thưởng thức
+              <div id="flip">
+                <div>
+                  <div>Sự tươi mát</div>
+                </div>
+                <div>
+                  <div>Sự ngọt ngào</div>
+                </div>
+                <div>
+                  <div>Niềm hạnh phúc</div>
+                </div>
               </div>
-              <div>
-                <div>Sự ngọt ngào</div>
-              </div>
-              <div>
-                <div>Niềm hạnh phúc</div>
-              </div>
+              Mỗi miếng ăn!
             </div>
-            Mỗi miếng ăn!
           </div>
-        </div>
-
-        <div className="banner_images" ref={bannerImagesRef}>
-          <div className="banner_image">
-            <img src={slideBanh1} alt="Banner 1" className="banner_img" />
+  
+          <div className="banner_images">
+            <div className={`banner_image ${currentSlide === 0 ? 'active' : ''}`}>
+              <img src={slideBanh1} alt="Banner 1" className="banner_img" />
+            </div>
+            <div className={`banner_image ${currentSlide === 1 ? 'active' : ''}`}>
+              <img src={slideBanh2} alt="Banner 2" className="banner_img2" />
+            </div>
+            <div className={`banner_image ${currentSlide === 2 ? 'active' : ''}`}>
+              <img src={slideBanh3} alt="Banner 3" className="banner_img3" />
+            </div>
           </div>
-          <div className="banner_image">
-            <img src={slideBanh2} alt="Banner 2" className="banner_img2" />
-          </div>
-          <div className="banner_image">
-            <img src={slideBanh3} alt="Banner 3" className="banner_img3" />
-          </div>
-        </div>
 
         {/* Slider Controls */}
         <div className="slider-controls">
-          {[...Array(totalSlides)].map((_, index) => (
+          {[slideBanh1, slideBanh2, slideBanh3].map((image, index) => (
             <div
               key={index}
-              className={`slider-dot ${index === currentSlide ? "active" : ""}`}
+              className={`slider-thumbnail ${index === currentSlide ? "active" : ""}`}
               onClick={() => goToSlide(index)}
-            />
+            >
+              <img src={image} alt={`Banner ${index + 1}`} className="thumbnail-img" />
+            </div>
           ))}
         </div>
       </div>
