@@ -3,6 +3,9 @@ import bg from "../../assets/images/bg.jpg";
 import slideBanh1 from "../../assets/images/silde/banhchanh.png";
 import slideBanh2 from "../../assets/images/silde/banhvietquoc.png";
 import slideBanh3 from "../../assets/images/silde/banhmatcha/matcha.png";
+import botmatcha from "../../assets/images/silde/banhmatcha/botmatcha.jpg";
+import tra from "../../assets/images/silde/banhmatcha/tra.jpg";
+import allmatcha from "../../assets/images/silde/banhmatcha/allmatcha.jpg";
 //Content Products
 import chocolate1 from "../../assets/images/Donut/chocolate1.png";
 import chocolate2 from "../../assets/images/Donut/chocolate2.png";
@@ -59,4 +62,7 @@ export {
   bkjj,
   bkhh,
   bktao,
+  botmatcha,
+  tra,
+  allmatcha,
 };

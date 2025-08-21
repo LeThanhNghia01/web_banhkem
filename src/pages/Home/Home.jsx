@@ -9,122 +9,196 @@ import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, don
   bkvq,
   bkjj,
   bkhh,
-  bktao, } from "../../assets/images";
-  export default function Home() {
-    // Banner state
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const bannerRef = useRef(null);
-    const revealedElementsRef = useRef(new Set());
+  allmatcha,
+  botmatcha,tra, } from "../../assets/images";
   
-    const bgColors = ["#BB8843", "#721D64", "#615B1A"];
-    const totalSlides = 3;
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        nextSlide();
-      }, 6000);
-      return () => clearInterval(interval);
-    }, [currentSlide]);
-  
-    useEffect(() => {
-      updateBackground();
-    }, [currentSlide]);
-  
-    const nextSlide = () => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    };
-  
-    const updateBackground = () => {
-      if (bannerRef.current) {
-        bannerRef.current.style.backgroundColor = bgColors[currentSlide];
-      }
-    };
-  
-    const goToSlide = (index) => {
-      setCurrentSlide(index);
-    };
-    // Updated reveal on scroll functionality
-    useEffect(() => {
-      function revealOnScroll() {
-        let reveals = document.querySelectorAll('.reveal');
+export default function Home() {
+  // Banner state
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const bannerRef = useRef(null);
+  const revealedElementsRef = useRef(new Set());
+
+  const bgColors = ["#BB8843", "#721D64", "#615B1A"];
+  const totalSlides = 3;
+
+  // Banner content data for each slide
+  const bannerContentData = [
+    {
+      // Slide 1 - Matcha content
+      items: [
+        {
+          image: botmatcha,
+          title: "Thành phần chính",
+          subtitle: "Bột matcha & Cream cheese",
+          alt: "Nguyên liệu"
+        },
+        {
+          image: tra,
+          title: "Trà xanh",
+          subtitle: "Hài hoà hơn với trà xanh",
+          alt: "Trà xanh"
+        },
+        {
+          image: allmatcha,
+          title: "Chỉ khoảng 35K",
+          subtitle: "Một miếng 35k, đủ vị matcha.",
+          alt: "Giá cả"
+        }
+      ]
+    },
+    {
+      // Slide 2 - Chocolate content  
+      items: [
+        {
+          image: chocolate1,
+          title: "Chocolate đặc biệt",
+          subtitle: "Vị chocolate đậm đà, ngọt ngào",
+          alt: "Chocolate"
+        },
+        {
+          image: donut1,
+          title: "Bánh Donut",
+          subtitle: "Mềm mịn, thơm lừng hấp dẫn",
+          alt: "Donut"
+        },
+        {
+          image: chocolate2,
+          title: "Chỉ từ 25K",
+          subtitle: "Giá cả phải chăng, chất lượng cao.",
+          alt: "Giá cả"
+        }
+      ]
+    },
+    {
+      // Slide 3 - Cake content
+      items: [
+        {
+          image: nenbk1,
+          title: "Bánh kem cao cấp",
+          subtitle: "Kem tươi, mềm mịn tinh tế",
+          alt: "Bánh kem"
+        },
+        {
+          image: bkdau,
+          title: "Vị dâu tây",
+          subtitle: "Tươi mát, ngọt thanh tự nhiên",
+          alt: "Bánh dâu"
+        },
+        {
+          image: bkvq,
+          title: "Từ 45K",
+          subtitle: "Bánh kem chất lượng, giá tốt nhất.",
+          alt: "Giá bánh kem"
+        }
+      ]
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
+  useEffect(() => {
+    updateBackground();
+  }, [currentSlide]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const updateBackground = () => {
+    if (bannerRef.current) {
+      bannerRef.current.style.backgroundColor = bgColors[currentSlide];
+    }
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  // Updated reveal on scroll functionality
+  useEffect(() => {
+    function revealOnScroll() {
+      let reveals = document.querySelectorAll('.reveal');
+      
+      for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 150;
         
-        for (let i = 0; i < reveals.length; i++) {
-          let windowHeight = window.innerHeight;
-          let elementTop = reveals[i].getBoundingClientRect().top;
-          let elementVisible = 150;
-          
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-          } else {
-            reveals[i].classList.remove("active");
-          }
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
         }
       }
+    }
+    
+    function checkReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
       
-      function checkReveal() {
-        const reveals = document.querySelectorAll('.reveal');
-        const windowHeight = window.innerHeight;
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        const elementVisible = 150;
         
-        reveals.forEach(element => {
-          const elementTop = element.getBoundingClientRect().top;
-          const elementBottom = element.getBoundingClientRect().bottom;
-          const elementVisible = 150;
-          
-          if ((elementTop < windowHeight - elementVisible) && (elementBottom > elementVisible)) {
-            element.classList.add('active');
-            revealedElementsRef.current.add(element);
-          } else {
-            if (revealedElementsRef.current.has(element)) {
-              element.classList.remove('active');
-            }
+        if ((elementTop < windowHeight - elementVisible) && (elementBottom > elementVisible)) {
+          element.classList.add('active');
+          revealedElementsRef.current.add(element);
+        } else {
+          if (revealedElementsRef.current.has(element)) {
+            element.classList.remove('active');
           }
-        });
-      }
-  
-      revealOnScroll();
-      checkReveal();
-      
-      window.addEventListener('scroll', revealOnScroll);
-      window.addEventListener('scroll', checkReveal);
-      
-      return () => {
-        window.removeEventListener('scroll', revealOnScroll);
-        window.removeEventListener('scroll', checkReveal);
-      };
-    }, []);
-    return (
-      <div>
-        {/* Banner Section với Fade Effect */}
-        <div className="banner_section">
-          <div className="banner" ref={bannerRef}>
-            <div className="banner_text">
-              Thưởng thức
-              <div id="flip">
-                <div>
-                  <div>Sự tươi mát</div>
-                </div>
-                <div>
-                  <div>Sự ngọt ngào</div>
-                </div>
-                <div>
-                  <div>Niềm hạnh phúc</div>
+        }
+      });
+    }
+
+    revealOnScroll();
+    checkReveal();
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('scroll', checkReveal);
+    
+    return () => {
+      window.removeEventListener('scroll', revealOnScroll);
+      window.removeEventListener('scroll', checkReveal);
+    };
+  }, []);
+
+  return (
+    <div>
+      {/* Banner Section với Fade Effect */}
+      <div className="banner_section">
+        <div className="banner" ref={bannerRef}>
+          {/* Dynamic banner content based on current slide */}
+          <div className="banner_content">
+            {bannerContentData[currentSlide].items.map((item, index) => (
+              <div key={index} className={`banner_content_item ${currentSlide === index ? 'active' : ''}`}>
+                <img src={item.image} alt={item.alt} className="banner_content_image" />
+                <div className="banner_content_texts">
+                  <h2 className="banner_content_text">{item.title}</h2>
+                  <p className="banner_content_subtext">{item.subtitle}</p>
                 </div>
               </div>
-              Mỗi miếng ăn!
-            </div>
+            ))}
           </div>
-  
-          <div className="banner_images">
-            <div className={`banner_image ${currentSlide === 0 ? 'active' : ''}`}>
-              <img src={slideBanh1} alt="Banner 1" className="banner_img" />
-            </div>
-            <div className={`banner_image ${currentSlide === 1 ? 'active' : ''}`}>
-              <img src={slideBanh2} alt="Banner 2" className="banner_img2" />
-            </div>
-            <div className={`banner_image ${currentSlide === 2 ? 'active' : ''}`}>
-              <img src={slideBanh3} alt="Banner 3" className="banner_img3" />
-            </div>
+        </div>
+
+        <div className="banner_images">
+          <div className={`banner_image ${currentSlide === 0 ? 'active' : ''}`}>
+            <img src={slideBanh1} alt="Banner 1" className="banner_img" />
           </div>
+          <div className={`banner_image ${currentSlide === 1 ? 'active' : ''}`}>
+            <img src={slideBanh2} alt="Banner 2" className="banner_img2" />
+          </div>
+          <div className={`banner_image ${currentSlide === 2 ? 'active' : ''}`}>
+            <img src={slideBanh3} alt="Banner 3" className="banner_img3" />
+          </div>
+        </div>
 
         {/* Slider Controls */}
         <div className="slider-controls">
@@ -195,27 +269,28 @@ import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, don
              </a>
         </div>
       </div>
-      <div class="content_products_cake">
-            <div class="content_cake">
-                <h1>Bánh Kem</h1>
+      
+      <div className="content_products_cake">
+            <div className="content_cake">
+                <h1>Bánh Kem</h1>
                 <p>Bánh kem mềm mịn, ngọt ngào, được trang trí tinh tế.</p>
             </div>
-            <div class="cake">
-                <div class="image_cake">
-                    <img src={nenbk1} alt="Bánh Kem" class="img_cake reveal"/>
-                    <img src={nenbk2} alt="Bánh Kem" class="img_cake reveal"/>
-                    <img src={nenbk3} alt="Bánh Kem" class="img_cake reveal"/>
+            <div className="cake">
+                <div className="image_cake">
+                    <img src={nenbk1} alt="Bánh Kem" className="img_cake reveal"/>
+                    <img src={nenbk2} alt="Bánh Kem" className="img_cake reveal"/>
+                    <img src={nenbk3} alt="Bánh Kem" className="img_cake reveal"/>
                 </div>
-                <a href="#vd" class="link_cake ">Xem Thêm</a>
+                <a href="#vd" className="link_cake ">Xem Thêm</a>
             </div>
-              <div class="cakes">
-                  <a href="#vd"><img src={bkdau} alt="Bánh kem" class="image_cakes"/></a>
-                  <a href="#vd"><img src={bkvq} alt="Bánh kem" class="image_cakes"/></a>
-                  <a href="#vd"><img src={bkgd} alt="Bánh kem" class="image_cakes"/></a>
-                  <a href="#vd"><img src={bkhh} alt="Bánh kem" class="image_cakes"/></a>
-                  <a href="#vd"><img src={bkjj} alt="Bánh kem" class="image_cakes"/></a>
-                  <a href="#vd"><img src={bkmix} alt="Bánh kem" class="image_cakes"/></a>
-                  <a href="#vd"><img src={bktang} alt="Bánh kem" class="image_cakes"/></a>
+              <div className="cakes">
+                  <a href="#vd"><img src={bkdau} alt="Bánh kem" className="image_cakes"/></a>
+                  <a href="#vd"><img src={bkvq} alt="Bánh kem" className="image_cakes"/></a>
+                  <a href="#vd"><img src={bkgd} alt="Bánh kem" className="image_cakes"/></a>
+                  <a href="#vd"><img src={bkhh} alt="Bánh kem" className="image_cakes"/></a>
+                  <a href="#vd"><img src={bkjj} alt="Bánh kem" className="image_cakes"/></a>
+                  <a href="#vd"><img src={bkmix} alt="Bánh kem" className="image_cakes"/></a>
+                  <a href="#vd"><img src={bktang} alt="Bánh kem" className="image_cakes"/></a>
                   <div className="view-more-arrow">
                   <a href="#vd" className="arrow-link">
                     <div className="arrow-circle">

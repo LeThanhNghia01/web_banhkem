@@ -456,8 +456,50 @@ body {
     z-index: 2;
 }
 
-/* ======================== DESKTOP - BÁNH KEM ======================== */
+/* ======================== DESKTOP  ======================== */
 @media screen and (min-width: 769px) {
+    .banner_content{
+        display: flex;
+        justify-content: center; /* căn giữa toàn bộ */
+        align-items: center;
+        gap: 50px; /* khoảng cách giữa các item */
+        margin-left: -500px; /* căn giữa với banner */
+        margin-top: 50px; /* căn giữa với banner */
+    }
+    .banner_content_item {
+        display: flex;
+        align-items: center; /* ảnh và khối chữ cùng hàng */
+        gap: 10px;
+        
+      }
+      
+      .banner_content_texts {
+        display: flex;
+        flex-direction: column; /* h2 và p nằm dọc */
+      }
+    .banner_content_image{
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        height: 70px;
+        width: 70px;
+        object-fit: cover;
+        padding: 5px;
+    }
+    .banner_content_text{
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 600;
+        font-family: 'Raleway', sans-serif;
+
+    }
+    .banner_content_subtext{
+        font-size: 0.9rem;
+        color: #fff;
+        margin: -5px 0 0 0;
+        font-family: 'Raleway', sans-serif;
+    }
+  
+    
     .content_products_cake {
         position: relative;
         min-height: 100vh;
