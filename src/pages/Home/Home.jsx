@@ -101,6 +101,7 @@ export default function Home() {
     }, 6000);
     return () => clearInterval(interval);
   }, [currentSlide]);
+  //
   useEffect(() => {
     // Reset animation khi chuyển slide
     setAnimatingItems(false);
@@ -131,7 +132,6 @@ export default function Home() {
     setCurrentSlide(index);
   };
 
-  // Updated reveal on scroll functionality
   useEffect(() => {
     function revealOnScroll() {
       let reveals = document.querySelectorAll('.reveal');
