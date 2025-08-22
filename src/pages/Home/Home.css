@@ -1046,7 +1046,16 @@ body {
     .banhvongs::-webkit-scrollbar {
         display: none;
     }
-    
+  
+    /* Wrapper cho mỗi ảnh donut trên mobile */
+    .donut-item-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;      /* Giảm border-radius */
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;           /* Không cho thu nhỏ */
+    }
    
     .image_banhvongs {
         width: 145px;            
@@ -1058,7 +1067,81 @@ body {
     first-donut {
         margin-left: 150px;        /* Tạo khoảng trống 50px trước ảnh đầu */
     }
+     /* Overlay thông tin sản phẩm trên mobile */
+     .donut-info-overlay {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(187, 136, 67, 0.95), rgba(139, 105, 20, 0.95));
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;            /* Giảm padding */
+        border-radius: 15px;      /* Giảm border-radius */
+        transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        backdrop-filter: blur(10px);
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+    }
     
+    /* Styling cho nội dung overlay trên mobile */
+    .donut-info-overlay h3 {
+        font-size: 0.8rem;        /* Giảm font-size */
+        font-weight: 700;
+        margin-top: -8px;         /* Điều chỉnh margin */
+        font-family: 'Pacifico', sans-serif;
+        margin-right: 10%;        /* Giảm margin */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .donut-info-overlay p {
+        font-size: 0.55rem;       /* Giảm font-size */
+        margin-top: -8px;         /* Điều chỉnh margin */
+        opacity: 0.9;
+        margin-right: 10%;        /* Giảm margin */
+        line-height: 1.2;         /* Điều chỉnh line-height */
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    .donut-info-overlay .price {
+        font-size: 0.85rem;       /* Giảm font-size */
+        font-weight: 700;
+        color: #FFE5B4;
+        margin-top: -8px;         /* Điều chỉnh margin */
+        margin-right: 10%;        /* Giảm margin */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .donut-info-overlay .moreinfo a {
+        display: inline-block;
+        background-color: rgba(235, 227, 211, 0.9);
+        color: #8B6914;
+        text-decoration: none;
+        padding: 3px 8px;         /* Giảm padding */
+        left: -10%;               /* Điều chỉnh vị trí */
+        position: relative;
+        border-radius: 15px;      /* Giảm border-radius */
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+        font-size: 0.6rem;        /* Giảm font-size */
+        border: 2px solid #b1a46c;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Tạo khoảng trống trước item đầu tiên (tùy chọn) */
+    .donut-item-wrapper:first-child {
+        margin-left: 10px;
+    }
+    
+    /* Tạo khoảng trống sau item cuối cùng (tùy chọn) */
+    .donut-item-wrapper:last-child {
+        margin-right: 10px;
+    }
     /*==============bánh kem Mobile===========*/
     
     .content_products_cake {
@@ -1425,6 +1508,7 @@ body {
         padding: 3px 6px;  
         display: inline-block;
     }
+    
  
 }
 
