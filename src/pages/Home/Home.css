@@ -567,8 +567,7 @@ body {
     .banner_content_item.active:hover .banner_content_texts {
         transform: translateX(5px);
     }
-  
-    
+    /*cake*/
     .content_products_cake {
         position: relative;
         min-height: 100vh;

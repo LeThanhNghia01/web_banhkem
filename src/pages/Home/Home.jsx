@@ -1,7 +1,8 @@
 // Home.jsx
 import React, { useState, useEffect, useRef } from "react";
+import donuts from "../../data/mockProducts";
 import "./Home.css";
-import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, donut5, donut6, donut7, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3, bkdau,
+import { slideBanh1, slideBanh2, slideBanh3, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3, bkdau,
   bkdg,
   bkmix,
   bkgd,
@@ -281,13 +282,18 @@ export default function Home() {
         </div>
         <div className="banhvongs">
           <div className="spacer"></div>
-          <a href="#vd"> <img src={donut1} alt="donut" className="image_banhvongs"/></a>
-          <a href="#vd"> <img src={donut2} alt="donut" className="image_banhvongs"/></a>
-          <a href="#vd"> <img src={donut3} alt="donut" className="image_banhvongs"/></a>
-          <a href="#vd"> <img src={donut4} alt="donut" className="image_banhvongs"/></a>
-          <a href="#vd"> <img src={donut5} alt="donut" className="image_banhvongs"/></a>
-          <a href="#vd"> <img src={donut6} alt="donut" className="image_banhvongs"/></a>
-          <a href="#vd"> <img src={donut7} alt="donut" className="image_banhvongs"/></a>
+          {donuts.map((donut) => (
+          <a key={donut.id} href="#vd">
+            <img
+              src={donut.image}
+              alt={donut.name}
+              className="image_banhvongs"
+            />
+          </a>
+        ))}
+
+
+       
           <a href="#vd" className="arrow-link">
           <div className="arrow-circle">
                     <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
