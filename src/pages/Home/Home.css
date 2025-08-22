@@ -418,26 +418,182 @@ body {
 
 .banhvongs {
     display: flex;
-    flex-wrap: wrap;         /* Cho phép xuống hàng */
-    justify-content: center; /* Căn giữa */
-    gap: 15px;             
-    max-width: 850px;      
-    margin: 0 auto;        
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 850px;
+    margin: 0 auto;
     background-color: #E9E0CF;
     border-radius: 30px;
-    top:-500px;
+    top: -500px;
     left: 250px;
     align-items: center;
     position: relative;
     padding: 20px 0;
+    overflow: hidden; /* Ẩn phần slide out */
 }
-.image_banhvongs{
+
+/* Wrapper cho mỗi ảnh donut */
+.donut-item-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.donut-item-wrapper:hover {
+    transform: scale(1.05);
+}
+
+/* Ảnh bánh donut */
+.image_banhvongs {
     width: 180px;
     height: 180px;
     border-radius: 30px;
-    object-fit: cover; 
-    overflow: hidden;  
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay thông tin sản phẩm */
+.donut-info-overlay {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Bắt đầu ở ngoài bên phải */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(187, 136, 67, 0.95), rgba(139, 105, 20, 0.95));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    border-radius: 30px;
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Hiệu ứng slide out khi click */
+.donut-item-wrapper.slide-out .donut-info-overlay {
+    left: 0; /* Slide vào từ phải */
+}
+
+.donut-item-wrapper.slide-out .image_banhvongs {
+    transform: translateX(-100%); /* Ảnh gốc slide ra trái */
+}
+
+/* Styling cho nội dung overlay */
+.donut-info-overlay h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: -10px;
+    font-family: 'Pacifico', sans-serif;
+    margin-right: 15%;
     
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.donut-info-overlay p {
+    font-size: 0.65rem;
+    margin-top: -10px;
+    opacity: 0.9;
+    margin-right: 15%;
+    line-height: 1.3;
+    font-family: 'Raleway', sans-serif;
+}
+
+.donut-info-overlay .price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FFE5B4;
+    margin-top: -10px;
+    margin-right: 15%;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.donut-info-overlay .moreinfo {
+    margin-top: 0px;
+}
+
+.donut-info-overlay .moreinfo a {
+    display: inline-block;
+    background-color: rgba(235, 227, 211, 0.9);
+    color: #8B6914;
+    text-decoration: none;
+    padding: 5px 10px;
+    left: -15%;
+    position: relative;
+    border-radius: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    border: 2px solid #b1a46c;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+/* Hiệu ứng fade in cho text */
+.donut-info-overlay h3,
+.donut-info-overlay p,
+.donut-info-overlay .price ,
+.donut-info-overlay .moreinfo {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+.donut-item-wrapper.slide-out .donut-info-overlay h3 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.donut-item-wrapper.slide-out .donut-info-overlay p {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.donut-item-wrapper.slide-out .donut-info-overlay .price {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+.donut-item-wrapper.slide-out .donut-info-overlay .moreinfo {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+/* Hiệu ứng slide back khi click lại */
+.donut-item-wrapper.slide-back .donut-info-overlay {
+    left: 100%;
+}
+
+.donut-item-wrapper.slide-back .image_banhvongs {
+    transform: translateX(0);
+}
+
+/* Animation bounce effect */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.donut-item-wrapper.slide-out .donut-info-overlay {
+    animation: bounceIn 0.6s ease;
 }
 .link_donut {
     position: absolute;
@@ -902,6 +1058,7 @@ body {
     first-donut {
         margin-left: 150px;        /* Tạo khoảng trống 50px trước ảnh đầu */
     }
+    
     /*==============bánh kem Mobile===========*/
     
     .content_products_cake {

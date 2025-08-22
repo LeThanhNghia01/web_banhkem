@@ -1,4 +1,4 @@
-// Home.jsx
+// Home.jsx - Updated with Slide Out Effect
 import React, { useState, useEffect, useRef } from "react";
 import donuts from "../../data/mockProducts";
 import "./Home.css";
@@ -19,6 +19,10 @@ export default function Home() {
   const bannerRef = useRef(null);
   const revealedElementsRef = useRef(new Set());
   const [animatingItems, setAnimatingItems] = useState(false);
+  
+  // Slide out state cho donuts
+  const [slideOutStates, setSlideOutStates] = useState({});
+  
   const bgColors = ["#BB8843", "#721D64", "#615B1A"];
   const totalSlides = 3;
 
@@ -43,7 +47,7 @@ export default function Home() {
       {
         image: slicelemoncake,
         title: "Từ 40K",
-        subtitle: "Xứng đáng từng miếng.",
+        subtitle: "Xứng đáng từng miếng.",
         alt: "Giá bánh kem"
       }
     ]
@@ -59,14 +63,14 @@ export default function Home() {
         },
         {
           image: blueberrycream,
-          title: "Hương vị tươi mát",
+          title: "Hương vị tươi mát",
           subtitle: "Kem mịn, thơm ngon hấp dẫn",
           alt: "Donut"
         },
         {
           image: allblueberry,
           title: "Chỉ từ 35K",
-          subtitle: "Thấm đẫm từng miếng.",
+          subtitle: "Thấm đẫm từng miếng.",
           alt: "Giá cả"
         }
       ]
@@ -96,13 +100,28 @@ export default function Home() {
     }
   ];
 
+  // Function để handle click slide out effect
+  const handleDonutClick = (donutId, event) => {
+    event.preventDefault(); // Ngăn navigation
+    
+    setSlideOutStates(prev => ({
+      ...prev,
+      [donutId]: !prev[donutId] // Toggle state
+    }));
+  };
+  // Function để handle click nút "Xem Thêm" mà không đóng overlay
+  const handleMoreInfoClick = (event) => {
+    event.stopPropagation(); // Ngăn event bubbling
+    // Thêm logic navigation hoặc modal ở đây nếu cần
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 6000);
     return () => clearInterval(interval);
   }, [currentSlide]);
-  //
+  
   useEffect(() => {
     // Reset animation khi chuyển slide
     setAnimatingItems(false);
@@ -181,6 +200,7 @@ export default function Home() {
       window.removeEventListener('scroll', checkReveal);
     };
   }, []);
+  
   const goToSlideWithAnimation = (index) => {
     setAnimatingItems(false); // Reset animation
     setCurrentSlide(index);
@@ -190,6 +210,7 @@ export default function Home() {
       setAnimatingItems(true);
     }, 100);
   };
+
   return (
     <div>
       {/* Banner Section với Fade Effect */}
@@ -236,7 +257,7 @@ export default function Home() {
             <div
               key={index}
               className={`slider-thumbnail ${index === currentSlide ? "active" : ""}`}
-              onClick={() => goToSlideWithAnimation(index)} // Sử dụng function mới
+              onClick={() => goToSlideWithAnimation(index)}
             >
               <img src={image} alt={`Banner ${index + 1}`} className="thumbnail-img" />
             </div>
@@ -280,65 +301,78 @@ export default function Home() {
             </a>
           </div>
         </div>
+        
         <div className="banhvongs">
           <div className="spacer"></div>
           {donuts.map((donut) => (
-          <a key={donut.id} href="#vd">
-            <img
-              src={donut.image}
-              alt={donut.name}
-              className="image_banhvongs"
-            />
-          </a>
-        ))}
+            <div 
+              key={donut.id} 
+              className={`donut-item-wrapper ${slideOutStates[donut.id] ? 'slide-out' : ''}`}
+              onClick={(e) => handleDonutClick(donut.id, e)}
+            >
+              <img
+                src={donut.image}
+                alt={donut.name}
+                className="image_banhvongs"
+              />
+              <div className="donut-info-overlay">
+                <h3>{donut.name}</h3>
+                <p>{donut.description.length > 80 ? 
+                    `${donut.description.substring(0, 40)}...` : 
+                    donut.description
+                }</p>
+                <div className="price">{donut.price}</div>
+                  <div className ="moreinfo">
+                  <a href="#vd" onClick={handleMoreInfoClick}>Xem Thêm</a>
+                  </div>
+              </div>
+            </div>
+          ))}
 
-
-       
           <a href="#vd" className="arrow-link">
-          <div className="arrow-circle">
-                    <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>     
-                  <span className="arrow-text">Xem thêm</span>
-             </a>
+            <div className="arrow-circle">
+              <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>     
+            <span className="arrow-text">Xem thêm</span>
+          </a>
         </div>
       </div>
       
       <div className="content_products_cake">
-            <div className="content_cake">
-                <h1>Bánh Kem</h1>
-                <p>Bánh kem mềm mịn, ngọt ngào, được trang trí tinh tế.</p>
-            </div>
-            <div className="cake">
-                <div className="image_cake">
-                    <img src={nenbk1} alt="Bánh Kem" className="img_cake reveal"/>
-                    <img src={nenbk2} alt="Bánh Kem" className="img_cake reveal"/>
-                    <img src={nenbk3} alt="Bánh Kem" className="img_cake reveal"/>
-                </div>
-                <a href="#vd" className="link_cake ">Xem Thêm</a>
-            </div>
-              <div className="cakes">
-                  <a href="#vd"><img src={bkdau} alt="Bánh kem" className="image_cakes"/></a>
-                  <a href="#vd"><img src={bkvq} alt="Bánh kem" className="image_cakes"/></a>
-                  <a href="#vd"><img src={bkgd} alt="Bánh kem" className="image_cakes"/></a>
-                  <a href="#vd"><img src={bkhh} alt="Bánh kem" className="image_cakes"/></a>
-                  <a href="#vd"><img src={bkjj} alt="Bánh kem" className="image_cakes"/></a>
-                  <a href="#vd"><img src={bkmix} alt="Bánh kem" className="image_cakes"/></a>
-                  <a href="#vd"><img src={bktang} alt="Bánh kem" className="image_cakes"/></a>
-                  <div className="view-more-arrow">
-                  <a href="#vd" className="arrow-link">
-                    <div className="arrow-circle">
-                      <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <span className="arrow-text">Xem thêm</span>
-                  </a>
-            </div>
-            </div>
-       </div>
-      
+        <div className="content_cake">
+          <h1>Bánh Kem</h1>
+          <p>Bánh kem mềm mịn, ngọt ngào, được trang trí tinh tế.</p>
+        </div>
+        <div className="cake">
+          <div className="image_cake">
+            <img src={nenbk1} alt="Bánh Kem" className="img_cake reveal"/>
+            <img src={nenbk2} alt="Bánh Kem" className="img_cake reveal"/>
+            <img src={nenbk3} alt="Bánh Kem" className="img_cake reveal"/>
+          </div>
+          <a href="#vd" className="link_cake ">Xem Thêm</a>
+        </div>
+        <div className="cakes">
+          <a href="#vd"><img src={bkdau} alt="Bánh kem" className="image_cakes"/></a>
+          <a href="#vd"><img src={bkvq} alt="Bánh kem" className="image_cakes"/></a>
+          <a href="#vd"><img src={bkgd} alt="Bánh kem" className="image_cakes"/></a>
+          <a href="#vd"><img src={bkhh} alt="Bánh kem" className="image_cakes"/></a>
+          <a href="#vd"><img src={bkjj} alt="Bánh kem" className="image_cakes"/></a>
+          <a href="#vd"><img src={bkmix} alt="Bánh kem" className="image_cakes"/></a>
+          <a href="#vd"><img src={bktang} alt="Bánh kem" className="image_cakes"/></a>
+          <div className="view-more-arrow">
+            <a href="#vd" className="arrow-link">
+              <div className="arrow-circle">
+                <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <span className="arrow-text">Xem thêm</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

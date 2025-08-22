@@ -1,4 +1,4 @@
-// src/data/donuts.js
+// src/data/mockProducts.js
 import {
   donut1,
   donut2,
