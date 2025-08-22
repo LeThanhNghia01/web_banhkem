@@ -1,7 +1,15 @@
 import banh1 from "../../assets/images/banh1.png";
 import bg from "../../assets/images/bg.jpg";
-import slideBanh1 from "../../assets/images/silde/banhchanh.png";
-import slideBanh2 from "../../assets/images/silde/banhvietquoc.png";
+import slideBanh1 from "../../assets/images/silde/lemoncake/banhchanh.png";
+import banh from "../../assets/images/silde/lemoncake/banh.jpg";
+import creamcheese from "../../assets/images/silde/lemoncake/creamcheese.jpg";
+import slicelemoncake from "../../assets/images/silde/lemoncake/slicelemoncake.png";
+//
+import slideBanh2 from "../../assets/images/silde/blueberrycake/banhvietquoc.png";
+import blueberry from "../../assets/images/silde/blueberrycake/blueberry.jpg";
+import allblueberry from "../../assets/images/silde/blueberrycake/allblueberry.jpg";
+import blueberrycream from "../../assets/images/silde/blueberrycake/blueberrycream.jpg";
+//
 import slideBanh3 from "../../assets/images/silde/banhmatcha/matcha.png";
 import botmatcha from "../../assets/images/silde/banhmatcha/botmatcha.jpg";
 import tra from "../../assets/images/silde/banhmatcha/tra.jpg";
@@ -65,4 +73,10 @@ export {
   botmatcha,
   tra,
   allmatcha,
+  blueberry,
+  allblueberry,
+  blueberrycream,
+  banh,
+  creamcheese,
+  slicelemoncake,
 };

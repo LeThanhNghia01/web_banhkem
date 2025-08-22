@@ -10,7 +10,7 @@ import { slideBanh1, slideBanh2, slideBanh3, donut1, donut2, donut3, donut4, don
   bkjj,
   bkhh,
   allmatcha,
-  botmatcha,tra, } from "../../assets/images";
+  botmatcha,tra,blueberry,allblueberry,blueberrycream ,banh,creamcheese,slicelemoncake} from "../../assets/images";
   
 export default function Home() {
   // Banner state
@@ -24,73 +24,74 @@ export default function Home() {
   // Banner content data for each slide
   const bannerContentData = [
     {
-      // Slide 1 - Matcha content
-      items: [
-        {
-          image: botmatcha,
-          title: "Thành phần chính",
-          subtitle: "Bột matcha & Cream cheese",
-          alt: "Nguyên liệu"
-        },
-        {
-          image: tra,
-          title: "Trà xanh",
-          subtitle: "Hài hoà hơn với trà xanh",
-          alt: "Trà xanh"
-        },
-        {
-          image: allmatcha,
-          title: "Chỉ khoảng 35K",
-          subtitle: "Một miếng 35k, đủ vị matcha.",
-          alt: "Giá cả"
-        }
-      ]
+    // Slide  - Cake content
+    items: [
+      {
+        image: creamcheese,
+        title: "Kem phô mai chanh",
+        subtitle: "Kem tươi, mềm mịn tinh tế",
+        alt: "Bánh kem"
+      },
+      {
+        image: banh,
+        title: "Cốt bánh ",
+        subtitle: "Bánh bông lan mềm ẩm, nhẹ xốp",
+        alt: "Bánh dâu"
+      },
+      {
+        image: slicelemoncake,
+        title: "Từ 40K",
+        subtitle: "Xứng đáng từng miếng.",
+        alt: "Giá bánh kem"
+      }
+    ]
     },
     {
-      // Slide 2 - Chocolate content  
+      // Slide  - Blueberry cake content  
       items: [
         {
-          image: chocolate1,
-          title: "Chocolate đặc biệt",
-          subtitle: "Vị chocolate đậm đà, ngọt ngào",
-          alt: "Chocolate"
+          image: blueberry,
+          title: "Việt quất tươi",
+          subtitle: "Tạo vị chua ngọt tự nhiên",
+          alt: "Blueberry"
         },
         {
-          image: donut1,
-          title: "Bánh Donut",
-          subtitle: "Mềm mịn, thơm lừng hấp dẫn",
+          image: blueberrycream,
+          title: "Hương vị tươi mát",
+          subtitle: "Kem mịn, thơm ngon hấp dẫn",
           alt: "Donut"
         },
         {
-          image: chocolate2,
-          title: "Chỉ từ 25K",
-          subtitle: "Giá cả phải chăng, chất lượng cao.",
+          image: allblueberry,
+          title: "Chỉ từ 35K",
+          subtitle: "Thấm đẫm từng miếng.",
           alt: "Giá cả"
         }
       ]
     },
     {
-      // Slide 3 - Cake content
-      items: [
-        {
-          image: nenbk1,
-          title: "Bánh kem cao cấp",
-          subtitle: "Kem tươi, mềm mịn tinh tế",
-          alt: "Bánh kem"
-        },
-        {
-          image: bkdau,
-          title: "Vị dâu tây",
-          subtitle: "Tươi mát, ngọt thanh tự nhiên",
-          alt: "Bánh dâu"
-        },
-        {
-          image: bkvq,
-          title: "Từ 45K",
-          subtitle: "Bánh kem chất lượng, giá tốt nhất.",
-          alt: "Giá bánh kem"
-        }
-      ]
+      
+        // Slide  - Matcha content
+        items: [
+          {
+            image: botmatcha,
+            title: "Thành phần chính",
+            subtitle: "Bột matcha & Cream cheese",
+            alt: "Nguyên liệu"
+          },
+          {
+            image: tra,
+            title: "Trà xanh",
+            subtitle: "Hài hoà hơn với trà xanh",
+            alt: "Trà xanh"
+          },
+          {
+            image: allmatcha,
+            title: "Chỉ khoảng 35K",
+            subtitle: "Một miếng 35k, đủ vị matcha.",
+            alt: "Giá cả"
+          }
+        ]
     }
   ];
 
