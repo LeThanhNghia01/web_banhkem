@@ -17,7 +17,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const bannerRef = useRef(null);
   const revealedElementsRef = useRef(new Set());
-
+  const [animatingItems, setAnimatingItems] = useState(false);
   const bgColors = ["#BB8843", "#721D64", "#615B1A"];
   const totalSlides = 3;
 
@@ -31,6 +31,7 @@ export default function Home() {
         title: "Kem phô mai chanh",
         subtitle: "Kem tươi, mềm mịn tinh tế",
         alt: "Bánh kem"
+        
       },
       {
         image: banh,
@@ -70,7 +71,6 @@ export default function Home() {
       ]
     },
     {
-      
         // Slide  - Matcha content
         items: [
           {
@@ -101,7 +101,18 @@ export default function Home() {
     }, 6000);
     return () => clearInterval(interval);
   }, [currentSlide]);
-
+  useEffect(() => {
+    // Reset animation khi chuyển slide
+    setAnimatingItems(false);
+    
+    // Trigger animation sau khi background đã thay đổi
+    const timer = setTimeout(() => {
+      setAnimatingItems(true);
+    }, 200); // Delay nhỏ để background transition hoàn thành trước
+    
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
+  
   useEffect(() => {
     updateBackground();
   }, [currentSlide]);
@@ -169,17 +180,34 @@ export default function Home() {
       window.removeEventListener('scroll', checkReveal);
     };
   }, []);
-
+  const goToSlideWithAnimation = (index) => {
+    setAnimatingItems(false); // Reset animation
+    setCurrentSlide(index);
+    
+    // Trigger animation sau khi slide đã được set
+    setTimeout(() => {
+      setAnimatingItems(true);
+    }, 100);
+  };
   return (
     <div>
       {/* Banner Section với Fade Effect */}
       <div className="banner_section">
         <div className="banner" ref={bannerRef}>
-          {/* Dynamic banner content based on current slide */}
           <div className="banner_content">
             {bannerContentData[currentSlide].items.map((item, index) => (
-              <div key={index} className={`banner_content_item ${currentSlide === index ? 'active' : ''}`}>
-                <img src={item.image} alt={item.alt} className="banner_content_image" />
+              <div 
+                key={`${currentSlide}-${index}`} 
+                className={`banner_content_item ${animatingItems ? 'active' : ''}`}
+                style={{
+                  transitionDelay: animatingItems ? `${index * 0.2 + 0.2}s` : '0s'
+                }}
+              >
+                <img 
+                  src={item.image} 
+                  alt={item.alt} 
+                  className="banner_content_image" 
+                />
                 <div className="banner_content_texts">
                   <h2 className="banner_content_text">{item.title}</h2>
                   <p className="banner_content_subtext">{item.subtitle}</p>
@@ -207,7 +235,7 @@ export default function Home() {
             <div
               key={index}
               className={`slider-thumbnail ${index === currentSlide ? "active" : ""}`}
-              onClick={() => goToSlide(index)}
+              onClick={() => goToSlideWithAnimation(index)} // Sử dụng function mới
             >
               <img src={image} alt={`Banner ${index + 1}`} className="thumbnail-img" />
             </div>
