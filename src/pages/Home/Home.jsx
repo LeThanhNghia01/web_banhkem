@@ -1,15 +1,9 @@
 // Home.jsx - Updated with Slide Out Effect
 import React, { useState, useEffect, useRef } from "react";
 import donuts from "../../data/mockProducts";
+import cakes from "../../data/mockCakes";
 import "./Home.css";
-import { slideBanh1, slideBanh2, slideBanh3, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3, bkdau,
-  bkdg,
-  bkmix,
-  bkgd,
-  bktang,
-  bkvq,
-  bkjj,
-  bkhh,
+import { slideBanh1, slideBanh2, slideBanh3, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3, 
   allmatcha,
   botmatcha,tra,blueberry,allblueberry,blueberrycream ,banh,creamcheese,slicelemoncake} from "../../assets/images";
   
@@ -101,13 +95,10 @@ export default function Home() {
   ];
 
   // Function để handle click slide out effect
-  const handleDonutClick = (donutId, event) => {
-    event.preventDefault(); // Ngăn navigation
-    
-    setSlideOutStates(prev => ({
-      ...prev,
-      [donutId]: !prev[donutId] // Toggle state
-    }));
+  const handleCardClick = (type, id, event) => {
+    event.preventDefault();
+    const key = `${type}-${id}`;
+    setSlideOutStates((prev) => ({ ...prev, [key]: !prev[key] }));
   };
   // Function để handle click nút "Xem Thêm" mà không đóng overlay
   const handleMoreInfoClick = (event) => {
@@ -307,15 +298,15 @@ export default function Home() {
           {donuts.map((donut) => (
             <div 
               key={donut.id} 
-              className={`donut-item-wrapper ${slideOutStates[donut.id] ? 'slide-out' : ''}`}
-              onClick={(e) => handleDonutClick(donut.id, e)}
+              className={`item-wrapper ${slideOutStates[`donut-${donut.id}`]? 'slide-out' : ''}`}
+              onClick={(e) => handleCardClick('donut', donut.id, e)}
             >
               <img
                 src={donut.image}
                 alt={donut.name}
                 className="image_banhvongs"
               />
-              <div className="donut-info-overlay">
+              <div className="info-overlay">
                 <h3>{donut.name}</h3>
                 <p>{donut.description.length > 80 ? 
                     `${donut.description.substring(0, 40)}...` : 
@@ -354,13 +345,31 @@ export default function Home() {
           <a href="#vd" className="link_cake ">Xem Thêm</a>
         </div>
         <div className="cakes">
-          <a href="#vd"><img src={bkdau} alt="Bánh kem" className="image_cakes"/></a>
-          <a href="#vd"><img src={bkvq} alt="Bánh kem" className="image_cakes"/></a>
-          <a href="#vd"><img src={bkgd} alt="Bánh kem" className="image_cakes"/></a>
-          <a href="#vd"><img src={bkhh} alt="Bánh kem" className="image_cakes"/></a>
-          <a href="#vd"><img src={bkjj} alt="Bánh kem" className="image_cakes"/></a>
-          <a href="#vd"><img src={bkmix} alt="Bánh kem" className="image_cakes"/></a>
-          <a href="#vd"><img src={bktang} alt="Bánh kem" className="image_cakes"/></a>
+          {cakes.map((cake)=>(
+          <div 
+            key={cake.id}
+          className={`item-wrapper ${slideOutStates[`cake-${cake.id}`] ? 'slide-out' : ''}`}
+          onClick={(e) => handleCardClick('cake', cake.id, e)}
+          >
+            <img
+              src={cake.image}
+              alt={cake.name}
+              className="image_cakes"
+            />
+            <div className="info-overlay">
+              <h3>{cake.name}</h3>
+              <p>{cake.description.length > 80 ? 
+                  `${cake.description.substring(0, 40)}...` :
+                  cake.description
+              }</p>
+              <div className="price">{cake.price}</div>
+                <div className ="moreinfo">
+                <a href="#vd" onClick={handleMoreInfoClick}>Xem Thêm</a>
+                </div>
+            </div>
+          </div>
+          ))}
+       
           <div className="view-more-arrow">
             <a href="#vd" className="arrow-link">
               <div className="arrow-circle">

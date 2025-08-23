@@ -118,6 +118,7 @@ body {
 .arrow-link:hover .arrow-text {
     color: #8B6914;
 }
+
 /* THIẾT LẬP CHO PHẦN BANNER */
 .banner_section {
     position: relative;     
@@ -434,7 +435,7 @@ body {
 }
 
 /* Wrapper cho mỗi ảnh donut */
-.donut-item-wrapper {
+.item-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 30px;
@@ -442,7 +443,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.donut-item-wrapper:hover {
+.item-wrapper:hover {
     transform: scale(1.05);
 }
 
@@ -457,10 +458,10 @@ body {
 }
 
 /* Overlay thông tin sản phẩm */
-.donut-info-overlay {
+.info-overlay {
     position: absolute;
     top: 0;
-    left: 100%; /* Bắt đầu ở ngoài bên phải */
+    left: 100%;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(187, 136, 67, 0.95), rgba(139, 105, 20, 0.95));
@@ -478,16 +479,16 @@ body {
 }
 
 /* Hiệu ứng slide out khi click */
-.donut-item-wrapper.slide-out .donut-info-overlay {
+.item-wrapper.slide-out .info-overlay {
     left: 0; /* Slide vào từ phải */
 }
 
-.donut-item-wrapper.slide-out .image_banhvongs {
+.item-wrapper.slide-out .image_banhvongs {
     transform: translateX(-100%); /* Ảnh gốc slide ra trái */
 }
 
 /* Styling cho nội dung overlay */
-.donut-info-overlay h3 {
+.info-overlay h3 {
     font-size: 1rem;
     font-weight: 700;
     margin-top: -10px;
@@ -497,7 +498,7 @@ body {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.donut-info-overlay p {
+.info-overlay p {
     font-size: 0.65rem;
     margin-top: -10px;
     opacity: 0.9;
@@ -506,7 +507,7 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-.donut-info-overlay .price {
+.info-overlay .price {
     font-size: 1rem;
     font-weight: 700;
     color: #FFE5B4;
@@ -514,11 +515,11 @@ body {
     margin-right: 15%;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-.donut-info-overlay .moreinfo {
+.info-overlay .moreinfo {
     margin-top: 0px;
 }
 
-.donut-info-overlay .moreinfo a {
+.info-overlay .moreinfo a {
     display: inline-block;
     background-color: rgba(235, 227, 211, 0.9);
     color: #8B6914;
@@ -535,42 +536,42 @@ body {
     backdrop-filter: blur(5px);
 }
 /* Hiệu ứng fade in cho text */
-.donut-info-overlay h3,
-.donut-info-overlay p,
-.donut-info-overlay .price ,
-.donut-info-overlay .moreinfo {
+.info-overlay h3,
+.info-overlay p,
+.info-overlay .price ,
+.info-overlay .moreinfo {
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
 }
-.donut-item-wrapper.slide-out .donut-info-overlay h3 {
+.item-wrapper.slide-out .info-overlay h3 {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.2s;
 }
 
-.donut-item-wrapper.slide-out .donut-info-overlay p {
+.item-wrapper.slide-out .info-overlay p {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.3s;
 }
 
-.donut-item-wrapper.slide-out .donut-info-overlay .price {
+.item-wrapper.slide-out .info-overlay .price {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.4s;
 }
-.donut-item-wrapper.slide-out .donut-info-overlay .moreinfo {
+.item-wrapper.slide-out .info-overlay .moreinfo {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.5s;
 }
 /* Hiệu ứng slide back khi click lại */
-.donut-item-wrapper.slide-back .donut-info-overlay {
+.item-wrapper.slide-back .info-overlay {
     left: 100%;
 }
 
-.donut-item-wrapper.slide-back .image_banhvongs {
+.item-wrapper.slide-back .image_banhvongs {
     transform: translateX(0);
 }
 
@@ -592,7 +593,7 @@ body {
     }
 }
 
-.donut-item-wrapper.slide-out .donut-info-overlay {
+.item-wrapper.slide-out .info-overlay {
     animation: bounceIn 0.6s ease;
 }
 .link_donut {
@@ -830,6 +831,19 @@ body {
         align-items: center;
         position: relative;
     }
+    
+    .info-overlay p {
+        font-size: 0.7rem;
+        opacity: 0.9;
+        margin: 10px;
+        position: relative;
+        margin-left: -20px;
+        text-align: center;
+        width: 90%;
+        line-height: 1.3;
+        color:#ffff;
+        font-family: 'Raleway', sans-serif;
+    }
 }
 /* TABLET RESPONSIVE - 768px và nhỏ hơn */
 @media screen and (max-width: 768px) {
@@ -1048,7 +1062,7 @@ body {
     }
   
     /* Wrapper cho mỗi ảnh donut trên mobile */
-    .donut-item-wrapper {
+    .item-wrapper {
         position: relative;
         overflow: hidden;
         border-radius: 15px;      /* Giảm border-radius */
@@ -1068,7 +1082,7 @@ body {
         margin-left: 150px;        /* Tạo khoảng trống 50px trước ảnh đầu */
     }
      /* Overlay thông tin sản phẩm trên mobile */
-     .donut-info-overlay {
+     .info-overlay {
         position: absolute;
         top: 0;
         left: 100%;
@@ -1089,7 +1103,7 @@ body {
     }
     
     /* Styling cho nội dung overlay trên mobile */
-    .donut-info-overlay h3 {
+    .info-overlay  h3 {
         font-size: 0.8rem;        /* Giảm font-size */
         font-weight: 700;
         margin-top: -8px;         /* Điều chỉnh margin */
@@ -1098,7 +1112,7 @@ body {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
     
-    .donut-info-overlay p {
+    .info-overlay p {
         font-size: 0.55rem;       /* Giảm font-size */
         margin-top: -8px;         /* Điều chỉnh margin */
         opacity: 0.9;
@@ -1107,7 +1121,7 @@ body {
         font-family: 'Raleway', sans-serif;
     }
     
-    .donut-info-overlay .price {
+    .info-overlay .price {
         font-size: 0.85rem;       /* Giảm font-size */
         font-weight: 700;
         color: #FFE5B4;
@@ -1116,7 +1130,7 @@ body {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
     
-    .donut-info-overlay .moreinfo a {
+    .info-overlay .moreinfo a {
         display: inline-block;
         background-color: rgba(235, 227, 211, 0.9);
         color: #8B6914;
@@ -1134,12 +1148,12 @@ body {
     }
     
     /* Tạo khoảng trống trước item đầu tiên (tùy chọn) */
-    .donut-item-wrapper:first-child {
+    .item-wrapper:first-child {
         margin-left: 10px;
     }
     
     /* Tạo khoảng trống sau item cuối cùng (tùy chọn) */
-    .donut-item-wrapper:last-child {
+    .item-wrapper:last-child {
         margin-right: 10px;
     }
     /*==============bánh kem Mobile===========*/
@@ -1508,7 +1522,19 @@ body {
         padding: 3px 6px;  
         display: inline-block;
     }
-    
+    .info-overlay p {
+        font-size: 0.8rem;
+        opacity: 0.9;
+        margin-top: -10px;
+        margin-bottom: 5px;
+        position: relative;
+        margin-left: 0px;
+        text-align: center;
+        width: 90%;
+        line-height: 1.3;
+        color:#ffff;
+        font-family: 'Raleway', sans-serif;
+    }
  
 }
 
