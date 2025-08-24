@@ -5,7 +5,11 @@ import cakes from "../../data/mockCakes";
 import "./Home.css";
 import { slideBanh1, slideBanh2, slideBanh3, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3, 
   allmatcha,
-  botmatcha,tra,blueberry,allblueberry,blueberrycream ,banh,creamcheese,slicelemoncake} from "../../assets/images";
+  botmatcha,tra,blueberry,allblueberry,blueberrycream ,banh,creamcheese,slicelemoncake,  nuoc,
+  banhnho,
+  socola,
+  donuttren,
+  donutduoi,} from "../../assets/images";
   
 export default function Home() {
   // Banner state
@@ -254,6 +258,24 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </div>
+        {/* About Us Section */}
+        <div className="about_section">
+          <div className="about_content">
+            <h1>“YUM” A Journey to Sweetness</h1>
+            <div className="about_image">
+              <img src={nuoc} alt="About Us" className="about_img_nuoc reveal" />
+              <img src={socola} alt="About Us" className="about_img_socola reveal" />
+              <img src={donutduoi} alt="About Us" className="about_img_donutduoi reveal" />
+              <img src={donuttren} alt="About Us" className="about_img_donuttren reveal" />
+              <img src={banhnho} alt="About Us" className="about_img_banhnho reveal" />
+            </div>
+            <p>
+               “Tại YUM, mỗi chiếc bánh không chỉ là món ngọt, mà còn là câu chuyện của đam mê và sự tận tâm. Hành trình vị ngọt của chúng tôi bắt đầu từ tình yêu hương vị và mong muốn mang niềm vui đến từng khoảnh khắc của bạn.”
+            </p>  
+            <a href="#vd" className="about_link">Đặt ngay  <i className="fa-solid fa-cart-shopping"></i></a>  
+          </div>           
+
       </div>
 
       {/* Content Products Section */}

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Raleway&family=Space+Mono&display=swap');
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 body {
     line-height: 1.6;          
     font-family: 'Raleway', sans-serif;  
@@ -42,22 +42,24 @@ body {
     top:-70px;
     padding: 0 20px;
     position:relative;
-    width:auto;
+    width:50%;
+    left:25%;
     border-radius: 50px;
-    margin-bottom: -40px;
+    margin-bottom: -60px;
 }
 
 .content_cake h1 {
     font-size: 2.5rem;
     color: #BB8843;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .content_cake p {
     font-size: 1.1rem;
     color: #666;
     max-width: 600px;
-    margin: 0 auto;
+    position: relative;
+  
 }
 .view-more-arrow {
     display: flex;
@@ -329,24 +331,24 @@ body {
     font-size: 18px;
     margin-bottom: 40px;
     padding: 0 20px;
+    width: 50%;
+    left: 25%;
     background-color: rgba(248, 224, 195, 0.8); 
     margin-bottom: -40px;
     position: relative;
     border-radius: 50px;
-    
 }
 
 .content_banhvong h1 {
     font-size: 2.5rem;
     color: #BB8843;
-    margin-bottom: 20px;
 }
 
 .content_banhvong p {
     font-size: 1.1rem;
     color: #666;
     max-width: 600px;
-    margin: 0 auto;
+    margin: -10px auto 0 auto;
 }
 
 .banhvong {
@@ -615,6 +617,89 @@ body {
 
 /* ======================== DESKTOP  ======================== */
 @media screen and (min-width: 769px) {
+    .about_section{
+        background-color: #fef6f0ef;
+        position: relative;
+        width: 120%;
+        height: 500px;
+        margin-left: -2%;
+        padding: 50px 20px;
+    }
+    .about_content{
+        color:#e3678c;
+    }
+    
+    .about_link{
+        height: auto;
+        width: auto;
+        position: relative;
+        top: -600px;
+        left: 63%;
+        cursor: pointer;    
+        color:#fff;
+        background-color:#e3678c; 
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 15px;
+    }
+    .about_link i {
+        color: #fff;   /* icon màu trắng */
+        font-size: 1rem;
+      }
+    .about_content h1{
+        font-size: 4.5rem;
+        color: #e3678c;
+        text-align: center;
+        top: 50px;
+        width: 50%;
+        left: 10%;
+        font-family: 'Pacifico', sans-serif;  
+        z-index: 1;
+        position: relative;  
+    }
+    .about_content p{
+        width: 15%;
+        top: -600px;
+        left: 63%;
+        font-size: 1.2rem;
+        font-family: 'Pacifico', sans-serif;  
+        position: relative;
+    }
+    .about_img_socola{
+        height: 8%;
+        width: 8%;
+        top :-450px;
+        position: relative;
+    }
+    .about_img_nuoc{
+        height: 10%;
+        width: 10%;
+        top :-250px;
+        left: 310px;
+        position: relative;
+    }
+    .about_img_banhnho{
+        height: 10%;
+        width: 10%;
+        position: relative;
+        left: -70px;
+        top :-180px;
+    }
+    .about_img_donutduoi{
+        height: 15%;
+        width: 15%;
+        position: relative;
+        left: 500px;
+        top :-310px;
+        z-index: 2;
+    }
+    .about_img_donuttren{
+        height: 9%;
+        width: 9%;
+        position: relative;
+        top :-382px;
+        left: 256px;
+    }
     .banner_content {
         display: flex;
         justify-content: center;
@@ -1157,7 +1242,7 @@ body {
         margin-right: 10px;
     }
     /*==============bánh kem Mobile===========*/
-    
+  
     .content_products_cake {
         position: relative;     
         min-height: 100vh;
@@ -1244,7 +1329,19 @@ body {
         display: inline-block;
         border-radius: 25px;
     }
-   
+    .info-overlay p {
+        font-size: 0.8rem;
+        opacity: 0.9;
+        margin-top: -10px;
+        margin-bottom: 5px;
+        position: relative;
+        margin-left: 0px;
+        text-align: center;
+        width: 90%;
+        line-height: 1.3;
+        color:#ffff;
+        font-family: 'Raleway', sans-serif;
+    }
 }
 /* MOBILE RESPONSIVE - 480px và nhỏ hơn */
 @media screen and (max-width: 480px) {
@@ -1458,7 +1555,9 @@ body {
     
     .content_banhvong {
         font-size: 14px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
+        width: 80%;
+        left: 5%;
     }
     
     .content_banhvong h1 {
@@ -1522,19 +1621,112 @@ body {
         padding: 3px 6px;  
         display: inline-block;
     }
-    .info-overlay p {
-        font-size: 0.8rem;
-        opacity: 0.9;
-        margin-top: -10px;
-        margin-bottom: 5px;
-        position: relative;
-        margin-left: 0px;
+  
+    .content_cake{
         text-align: center;
-        width: 90%;
-        line-height: 1.3;
-        color:#ffff;
-        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        font-family: 'Pacifico', sans-serif;  
+        background-color: rgba(248, 224, 195, 0.8); 
+        top:-70px;
+        padding: 0 20px;
+        position:relative;
+        width:80%;
+        left:5%;
+        border-radius: 50px;
+        margin-bottom: -60px;
     }
- 
+    
+    .content_cake h1 {
+        font-size: 1.5rem;
+        color: #BB8843;
+    }
+    
+    .content_cake p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: -25px auto 0 auto;
+        position: relative;
+      
+    }
+    /**/
+    .about_section{
+        background-color: #fef6f0ef;
+        position: relative;
+        width: 97.5%;
+        height: 300px;
+        margin-left: -6%;
+        padding: 40px 25px;
+    }
+    .about_content{
+        color:#e3678c;
+    }
+    
+    .about_link{
+        height: auto;
+        width: auto;
+        position: relative;
+        top: -300px;
+        left: 25%;
+        cursor: pointer;    
+        color:#fff;
+        background-color:#e3678c; 
+        text-decoration: none;
+        font-size: 0.8rem;
+        padding: 10px 10px;
+        border-radius: 15px;
+    }
+    .about_link i {
+        color: #fff;   /* icon màu trắng */
+        font-size: 0.5rem;
+      }
+    .about_content h1{
+        font-size: 2rem;
+        color: #e3678c;
+        text-align: center;
+        top: 50px;
+        width: 50%;
+        left: 1%;
+        font-family: 'Pacifico', sans-serif;  
+        z-index: 1;
+        position: relative;  
+    }
+    .about_content p{
+        width: 45%;
+        top: -220px;
+        left: 58%;
+        font-size: 0.9rem;
+        font-family: 'Pacifico', sans-serif;  
+        position: relative;
+    }
+    .about_img_socola{
+        height:15%;
+        width: 15%;
+        top :-170px;
+        left: -80px;
+        position: relative;
+    }
+    .about_img_nuoc{
+        height: 20%;
+        width: 20%;
+        top :0px;
+        left: 0px;
+        position: relative;
+    }
+    .about_img_banhnho{
+        height: 20%;
+        width: 20%;
+        position: relative;
+        left: 10px;
+        top :-180px;
+    }
+    .about_img_donutduoi{
+        height: 0%;
+        width: 0%;
+    }
+    .about_img_donuttren{
+        height: 0%;
+        width: 0%;
+    }
 }
 

@@ -4,6 +4,12 @@ import slideBanh1 from "../../assets/images/silde/lemoncake/banhchanh.png";
 import banh from "../../assets/images/silde/lemoncake/banh.jpg";
 import creamcheese from "../../assets/images/silde/lemoncake/creamcheese.jpg";
 import slicelemoncake from "../../assets/images/silde/lemoncake/slicelemoncake.png";
+//about us
+import nuoc from "../../assets/images/silde/aboutus/nuoc.png";
+import banhnho from "../../assets/images/silde/aboutus/banhnho.png";
+import socola from "../../assets/images/silde/aboutus/socola.png";
+import donuttren from "../../assets/images/silde/aboutus/donuttren.png";
+import donutduoi from "../../assets/images/silde/aboutus/donutduoi.png";
 //
 import slideBanh2 from "../../assets/images/silde/blueberrycake/banhvietquoc.png";
 import blueberry from "../../assets/images/silde/blueberrycake/blueberry.jpg";
@@ -79,4 +85,9 @@ export {
   banh,
   creamcheese,
   slicelemoncake,
+  nuoc,
+  banhnho,
+  socola,
+  donuttren,
+  donutduoi,
 };
