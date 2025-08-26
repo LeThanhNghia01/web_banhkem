@@ -10,7 +10,7 @@ import { slideBanh1, slideBanh2, slideBanh3, chocolate1, chocolate2, chocolate3,
   banhnho,
   socola,
   donuttren,
-  donutduoi,} from "../../assets/images";
+  donutduoi,cookies,} from "../../assets/images";
   
 export default function Home() {
   // Banner state
@@ -18,7 +18,7 @@ export default function Home() {
   const bannerRef = useRef(null);
   const revealedElementsRef = useRef(new Set());
   const [animatingItems, setAnimatingItems] = useState(false);
-  
+  const videoUrl = "https://res.cloudinary.com/dfngbzim8/video/upload/v1756197653/quytrinh1_is290r.mp4";
   // Slide out state cho donuts
   const [slideOutStates, setSlideOutStates] = useState({});
   
@@ -231,7 +231,7 @@ export default function Home() {
       setAnimatingItems(true);
     }, 100);
   };
-
+  //video
   return (
     <div>
       {/* Banner Section với Fade Effect */}
@@ -424,11 +424,24 @@ export default function Home() {
         </div>
         
         <div className="content_customcake">
-            {/* link video youtube */}
+          <h1>Bánh theo yêu cầu</h1>
+          <video 
+            className="custom_cake_video"
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            preload="auto"
+          >
+            <source src={videoUrl} type="video/mp4" />
+          </video>
+          <a href="#vd" className="linkcutomscake">Liên hệ ngay</a>
         </div>
         
         <div className="content_cookies">
-      
+   
+            <a href="#vd" className="linkcookies">Combo bánh quy</a>
+            <img src={cookies} className="img_cookies" />
         </div>
       </div>
 

@@ -1899,6 +1899,87 @@ body {
         height: 75%;
         margin-top: -45%;
         border-radius: 10px;
+        overflow: hidden;
+        position: relative; 
+        display: inline-block; 
       }
+    .linkcookies{
+        
+            height: auto;
+            width: auto;
+            position: absolute;
+            cursor: pointer;    
+            color:#fff; 
+            top:70%;
+            left: 2%;
+            background-color:#e3678c; 
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 2px 5px;
+            z-index: 2;
+            border-radius: 15px; 
+    }
+      .img_cookies{
+        height: 160px;
+        width: auto;
+        border-radius: 10px;
+     }
+   
+    /*video*/
+    .content_customcake {
+        position: relative; /* Quan trọng để h1 và overlay định vị đúng */
+        background-color: #f9d5e5;
+        grid-column: 2;
+        grid-row: 1;
+        height: 75%;
+        border-radius: 10px;
+        overflow: hidden; /* Để video không tràn ra ngoài border-radius */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .custom_cake_video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Video phủ kín container */
+        border-radius: 10px;
+      }
+      
+      /* Lớp nền mờ */
+      .content_customcake::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.4); /* Màu đen mờ phủ lên video */
+      }
+      
+      /* Tiêu đề */
+      .content_customcake h1 {
+        position: absolute;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-align: center;
+        font-family: 'Raleway', sans-serif;  
+        z-index: 2; /* Đảm bảo nằm trên overlay */
+      }
+      .linkcutomscake{
+        height: auto;
+        width: auto;
+        position: absolute;
+        top:110px;
+        left: 15%;
+        cursor: pointer;    
+        color:#fff;
+        background-color:#e3678c; 
+        text-decoration: none;
+        font-size: 0.8rem;
+        padding: 2px 5px;
+        z-index: 2;
+        border-radius: 15px; 
+      }
+    
+    
 }
 

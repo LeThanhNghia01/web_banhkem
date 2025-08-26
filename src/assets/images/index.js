@@ -53,7 +53,8 @@ import bobacoffee from "../../assets/images/douong/bobacoffee.jpg";
 import MangoIceTea from "../../assets/images/douong/MangoIceTea.jpg";
 import matchalate from "../../assets/images/douong/matchalate.jpg";
 import trasuakhoaimon from "../../assets/images/douong/trasuakhoaimon.jpg";
-
+//bánh quy
+import cookies from "../../assets/images/cookies/cookies.jpg";
 export {
   banh1,
   bg,
@@ -104,4 +105,5 @@ export {
   MangoIceTea,
   matchalate,
   trasuakhoaimon,
+  cookies,
 };
