@@ -1,7 +1,8 @@
-// Home.jsx - Updated with Slide Out Effect
+// Home.jsx - Updated with Drinks Slider
 import React, { useState, useEffect, useRef } from "react";
 import donuts from "../../data/mockProducts";
 import cakes from "../../data/mockCakes";
+import drinks from "../../data/mockDrinks"
 import "./Home.css";
 import { slideBanh1, slideBanh2, slideBanh3, chocolate1, chocolate2, chocolate3, chocolate4,nenbk1,nenbk2,nenbk3, 
   allmatcha,
@@ -20,6 +21,9 @@ export default function Home() {
   
   // Slide out state cho donuts
   const [slideOutStates, setSlideOutStates] = useState({});
+  
+  // Drinks slider state
+  const [currentDrinkSlide, setCurrentDrinkSlide] = useState(0);
   
   const bgColors = ["#BB8843", "#721D64", "#615B1A"];
   const totalSlides = 3;
@@ -104,10 +108,24 @@ export default function Home() {
     const key = `${type}-${id}`;
     setSlideOutStates((prev) => ({ ...prev, [key]: !prev[key] }));
   };
+  
   // Function để handle click nút "Xem Thêm" mà không đóng overlay
   const handleMoreInfoClick = (event) => {
     event.stopPropagation(); // Ngăn event bubbling
     // Thêm logic navigation hoặc modal ở đây nếu cần
+  };
+
+  // Drinks slider functions
+  const nextDrinkSlide = () => {
+    setCurrentDrinkSlide((prev) => (prev + 1) % drinks.length);
+  };
+
+  const prevDrinkSlide = () => {
+    setCurrentDrinkSlide((prev) => (prev - 1 + drinks.length) % drinks.length);
+  };
+
+  const goToDrinkSlide = (index) => {
+    setCurrentDrinkSlide(index);
   };
 
   useEffect(() => {
@@ -116,6 +134,14 @@ export default function Home() {
     }, 6000);
     return () => clearInterval(interval);
   }, [currentSlide]);
+
+  // Auto-slide cho drinks
+  useEffect(() => {
+    const drinkInterval = setInterval(() => {
+      nextDrinkSlide();
+    }, 3000); // Chuyển slide mỗi 3 giây
+    return () => clearInterval(drinkInterval);
+  }, [currentDrinkSlide]);
   
   useEffect(() => {
     // Reset animation khi chuyển slide
@@ -262,7 +288,7 @@ export default function Home() {
         {/* About Us Section */}
         <div className="about_section">
           <div className="about_content">
-            <h1>“YUM” A Journey to Sweetness</h1>
+            <h1>"YUM" A Journey to Sweetness</h1>
             <div className="about_image">
               <img src={nuoc} alt="About Us" className="about_img_nuoc reveal" />
               <img src={socola} alt="About Us" className="about_img_socola reveal" />
@@ -271,9 +297,9 @@ export default function Home() {
               <img src={banhnho} alt="About Us" className="about_img_banhnho reveal" />
             </div>
             <p>
-               “Tại YUM, mỗi chiếc bánh không chỉ là món ngọt, mà còn là câu chuyện của đam mê và sự tận tâm. Hành trình vị ngọt của chúng tôi bắt đầu từ tình yêu hương vị và mong muốn mang niềm vui đến từng khoảnh khắc của bạn.”
+               "Tại YUM, mỗi chiếc bánh không chỉ là món ngọt, mà còn là câu chuyện của đam mê và sự tận tâm. Hành trình vị ngọt của chúng tôi bắt đầu từ tình yêu hương vị và mong muốn mang niềm vui đến từng khoảnh khắc của bạn."
             </p>  
-            <a href="#vd" className="about_link">Đặt ngay  <i className="fa-solid fa-cart-shopping"></i></a>  
+            <a href="#vd" className="about_link">Đặt ngay  <i className="fa-solid fa-cart-shopping"></i></a>  
           </div>           
 
       </div>
@@ -353,6 +379,60 @@ export default function Home() {
         </div>
       </div>
       
+      {/* Drinks và lựa chọn khác với Drinks Slider */}
+      <div className="content_otherchoices">
+        <div className="content_drinks">
+       
+          <div className="drinks_slider">
+            <div className="drinks_container">
+       
+              {drinks.map((drink, index) => (
+                <div 
+                  key={drink.id}
+                  className={`drink_slide ${index === currentDrinkSlide ? 'active' : ''}`}
+                >
+                  <img 
+                    src={drink.image} 
+                    alt={drink.name}
+                    className="image_drink"
+                  />
+                  <div className="drink_info">
+                    <p className="drink_price">{drink.price.toLocaleString('vi-VN')}₫</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Navigation controls */}
+            <div className="drinks_navigation">
+              <button 
+                className="drinks_nav_btn prev" 
+                onClick={prevDrinkSlide}
+                aria-label="Previous drink"
+              >
+                &#8249;
+              </button>
+              <button 
+                className="drinks_nav_btn next" 
+                onClick={nextDrinkSlide}
+                aria-label="Next drink"
+              >
+                &#8250;
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div className="content_customcake">
+            {/* link video youtube */}
+        </div>
+        
+        <div className="content_cookies">
+      
+        </div>
+      </div>
+
+      {/* Content Products Section */}
       <div className="content_products_cake">
         <div className="content_cake">
           <h1>Bánh Kem</h1>

@@ -46,6 +46,14 @@ import bkvq from "../../assets/images/BanhKem/bkvq.jpg";
 import bkjj from "../../assets/images/BanhKem/bkjj.jpg";
 import bkhh from "../../assets/images/BanhKem/bkhh.jpg";
 import bktao from "../../assets/images/BanhKem/bktao.jpg";
+//nước
+import coffee from "../../assets/images/douong/coffee.jpg";
+import chanhday from "../../assets/images/douong/chanhday.jpg";
+import bobacoffee from "../../assets/images/douong/bobacoffee.jpg";
+import MangoIceTea from "../../assets/images/douong/MangoIceTea.jpg";
+import matchalate from "../../assets/images/douong/matchalate.jpg";
+import trasuakhoaimon from "../../assets/images/douong/trasuakhoaimon.jpg";
+
 export {
   banh1,
   bg,
@@ -90,4 +98,10 @@ export {
   socola,
   donuttren,
   donutduoi,
+  coffee,
+  chanhday,
+  bobacoffee,
+  MangoIceTea,
+  matchalate,
+  trasuakhoaimon,
 };
