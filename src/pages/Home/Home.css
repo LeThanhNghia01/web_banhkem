@@ -929,6 +929,387 @@ body {
         color:#ffff;
         font-family: 'Raleway', sans-serif;
     }
+    /*content_otherchoices*/
+    .content_otherchoices {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr; /* cột text - cột drinks - cột phải */
+        grid-template-rows: 1fr 1fr;   /* chia đôi chiều cao cột phải */
+        gap: 10px;
+        width: 100vw;
+        margin-left: -2%;
+        padding: 40px 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-sizing: border-box;
+    }
+    
+    /* Cột text mới */
+    .content_otherchoices_text {
+        background-color: #eadcd189;
+        grid-column: 1;       /* cột đầu tiên */
+        grid-row: 1 / span 2; /* chiếm cả 2 hàng */
+        border-radius: 20px;
+        padding: 30px;
+        width: 105%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; 
+        overflow: hidden;  
+        left: 35%;
+    }
+    
+    .otherchoices_text h1 {
+        color: #e3678c;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        text-align: center;
+        font-family: 'Pacifico', sans-serif;  
+        margin: 0;
+        position: relative;  /* đảm bảo text nằm trên */
+        z-index: 2;
+    }
+    .otherchoices_text_img img {
+        position: absolute;
+        top: 10%;     
+        left: 70%;
+        width: 30%;   /* to hơn container một chút để phủ nền */
+        height: auto;
+        z-index: 1;    /* nằm dưới text */
+        pointer-events: none; /* ảnh không chặn click */
+    }
+    .decor_img {
+        position: absolute;
+        width: 30%;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+        .decor_img.drink {
+        top: 10%;
+        left: 70%;
+    }
+    .decor_img.banh {
+        top: 60%;
+        left: 10%;
+    }
+    .decor_img.cookies {
+        top: 70%;
+        left: 60%;
+    }
+    .content_drinks {
+        height: 100%;
+        width: 50%; /* thay đổi từ 350px sang 100% */
+        border-radius: 20px;
+        position: relative;
+        left: 30%;
+        grid-column: 2;       /* cột giữa */
+        grid-row: 1 / span 2; /* chiếm cả 2 hàng */
+    }
+    
+    .content_drinks h1 {
+        color: #333;
+        font-size: 2rem;
+        position: relative;
+        z-index: 1;
+    }
+    .posterdrink_img{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        object-fit: cover; 
+
+    }
+    /* Drinks slider container */
+    .drinks_slider {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .drinks_container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        justify-content: center;
+    }
+    
+    /* Individual drink slides */
+    .drink_slide {
+        position: absolute;
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top:-25%;
+        opacity: 0;
+        transform: translateX(100px) scale(0.8);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+    }
+    
+    .drink_slide.active {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        pointer-events: all;
+    }
+    
+    .image_drink {
+        width: 370px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 15px;
+        top:125px;
+        position: relative;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+
+    }
+    
+    .drink_slide.active .image_drink {
+        animation: slideInDrink 0.6s ease-out;
+    }
+    
+    @keyframes slideInDrink {
+        0% {
+        transform: translateY(30px) scale(0.9);
+        opacity: 0;
+        }
+        100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        }
+    }
+    
+    .drink_info {
+        text-align: center;
+        color: #333;
+        top:80px;
+        position: relative;
+        animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+    
+    @keyframes fadeInUp {
+        0% {
+        opacity: 0;
+        transform: translateY(20px);
+        }
+        100% {
+        opacity: 1;
+        transform: translateY(0);
+        }
+    }
+    
+    .drink_price {
+        font-size: 1.1rem;
+        font-weight: bold;
+        top:-450px;
+        left: 40px;
+        width: 100%;
+        border-radius: 10px;
+        padding: 5px;
+        position: relative;
+        color: #8b3434;
+        background-color:#fff ;
+    }
+    
+    /* Navigation buttons */
+    .drinks_navigation {
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        pointer-events: none;
+    }
+    
+    .drinks_nav_btn {
+        background: rgba(255, 255, 255, );
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #333;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        pointer-events: all;
+        z-index: 10;
+    }
+    
+    .drinks_nav_btn:hover {
+        background: white;
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .drinks_nav_btn:active {
+        transform: scale(0.95);
+    }
+    /*btn cart*/
+    /* Button giỏ hàng cho drinks */
+.drink_cart_btn {
+    background: linear-gradient(135deg, #e3678c, #d1477a);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    width: 20px;
+    box-shadow: 0 4px 12px rgba(227, 103, 140, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    top: -505px;
+    left: 130px;
+    z-index: 3;
+  }
+  
+  .drink_cart_btn:hover {
+    background: linear-gradient(135deg, #d1477a, #b8406b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(227, 103, 140, 0.4);
+  }
+  
+  .drink_cart_btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(227, 103, 140, 0.3);
+  }
+  
+  .drink_cart_btn i {
+    font-size: 1.2rem;
+  }
+  
+  /* Responsive cho button */
+  @media (max-width: 768px) {
+    .drink_cart_btn {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      min-width: 120px;
+      top: -420px;
+      left: 30px;
+    }
+  }
+    .content_cookies {
+        background-color: #f6b53d;
+        grid-column: 3; /* cột phải, hàng dưới */
+        grid-row: 2;
+        height: 100%;
+        width: 100%; /* thay đổi từ 300px sang 100% */
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative; 
+        display: inline-block; 
+        right: 35%;
+    }
+    
+    .linkcookies{
+        height: auto;
+        width: auto;
+        position: absolute;
+        cursor: pointer;    
+        color:#fff; 
+        top:50%;
+        left: 23%;
+        background-color:#e3678c; 
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 2px 5px;
+        z-index: 2;
+        border-radius: 10px; 
+    }
+    
+    .img_cookies{
+        height: 500px;
+        width: auto;
+        top:-130px;
+        left: 0px;
+        position: absolute;
+        border-radius: 10px;
+    }
+    
+    /*video*/
+    .content_customcake {
+        position: relative; /* Quan trọng để h1 và overlay định vị đúng */
+        background-color: #f9d5e540;
+        grid-column: 3; /* cột phải, hàng trên */
+        grid-row: 1;
+        height: 100%;
+        width: 100%; 
+        right: 35%;
+        border-radius: 10px;
+        overflow: hidden; /* Để video không tràn ra ngoài border-radius */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .content_customcake_video{
+        position: relative;
+        height: 150%;
+        width: 200px; 
+    }
+    
+    .custom_cake_video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Video phủ kín container */
+        border-radius: 10px;
+    }
+    
+    /* Lớp nền mờ */
+    .content_customcake::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.2); /* Màu đen mờ phủ lên video */
+    }
+    
+    /* Tiêu đề */
+    .content_customcake h1 {
+        position: absolute;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-align: center;
+        font-family: 'Raleway', sans-serif;  
+        z-index: 2; /* Đảm bảo nằm trên overlay */
+    }
+    
+    .linkcutomscake{
+        height: auto;
+        width: auto;
+        position: absolute;
+        top:110px;
+        left: 23%;
+        cursor: pointer;    
+        color:#fff;
+        background-color:#e3678c; 
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 2px 5px;
+        z-index: 2;
+        border-radius: 10px; 
+    }
 }
 /* TABLET RESPONSIVE - 768px và nhỏ hơn */
 @media screen and (max-width: 768px) {

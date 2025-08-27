@@ -10,7 +10,7 @@ import { slideBanh1, slideBanh2, slideBanh3, chocolate1, chocolate2, chocolate3,
   banhnho,
   socola,
   donuttren,
-  donutduoi,cookies,} from "../../assets/images";
+  donutduoi,cookies,posterdrink,posterbanh,postercookies} from "../../assets/images";
   
 export default function Home() {
   // Banner state
@@ -380,30 +380,42 @@ export default function Home() {
       </div>
       
       {/* Drinks và lựa chọn khác với Drinks Slider */}
-      <div className="content_otherchoices">
-        <div className="content_drinks">
-       
-          <div className="drinks_slider">
-            <div className="drinks_container">
-       
-              {drinks.map((drink, index) => (
-                <div 
-                  key={drink.id}
-                  className={`drink_slide ${index === currentDrinkSlide ? 'active' : ''}`}
-                >
-                  <img 
-                    src={drink.image} 
-                    alt={drink.name}
-                    className="image_drink"
-                  />
-                  <div className="drink_info">
-                    <p className="drink_price">{drink.price.toLocaleString('vi-VN')}₫</p>
-                  </div>
-                </div>
-              ))}
+        <div className="content_otherchoices">
+          <div className="content_otherchoices_text">
+            <div className="otherchoices_text">
+            <h1>Chúng tôi mang đến hương vị ngọt ngào trong từng sản phẩm. 
+            Từ ly nước mát lành, chiếc bánh xinh xắn đến cookies giòn tan - tất cả đều được làm bằng tình yêu với bánh ngọt.</h1>
+            </div>   
+            <div className="otherchoices_text_img">
+          <img src={posterdrink} className="decor_img drink reveal"/>
+          <img src={posterbanh} className="decor_img banh reveal"/>
+          <img src={postercookies} className="decor_img cookies reveal"/>
             </div>
-            
-            {/* Navigation controls */}
+          </div>
+          <div className="content_drinks">
+            <div className="drinks_slider">
+              <div className="drinks_container">
+                {drinks.map((drink, index) => (
+                  <div 
+                key={drink.id}
+                className={`drink_slide ${index === currentDrinkSlide ? 'active' : ''}`}
+                  >
+                <img 
+                  src={drink.image} 
+                  alt={drink.name}
+                  className="image_drink"
+                />
+                <div className="drink_info">
+                  <p className="drink_price">{drink.price.toLocaleString('vi-VN')}₫</p>
+                  <button className="drink_cart_btn">
+                    <i className="fa-solid fa-cart-shopping"></i> 
+                  </button>
+                </div>
+              </div>
+              ))}
+          </div>
+          
+          {/* Navigation controls */}
             <div className="drinks_navigation">
               <button 
                 className="drinks_nav_btn prev" 
@@ -424,23 +436,23 @@ export default function Home() {
         </div>
         
         <div className="content_customcake">
-          <h1>Bánh theo yêu cầu</h1>
+         <div className="content_customcake_video">
           <video 
-            className="custom_cake_video"
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            preload="auto"
-          >
-            <source src={videoUrl} type="video/mp4" />
-          </video>
-          <a href="#vd" className="linkcutomscake">Liên hệ ngay</a>
+              className="custom_cake_video"
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              preload="auto"
+            >
+              <source src={videoUrl} type="video/mp4" />
+            </video>
+         </div>
+          <a href="#vd" className="linkcutomscake">🍰 Bánh theo yêu cầu</a>
         </div>
         
         <div className="content_cookies">
-   
-            <a href="#vd" className="linkcookies">Combo bánh quy</a>
+            <a href="#vd" className="linkcookies">🍪 Combo bánh quy</a>
             <img src={cookies} className="img_cookies" />
         </div>
       </div>
