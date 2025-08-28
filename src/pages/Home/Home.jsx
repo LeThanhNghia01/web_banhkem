@@ -482,7 +482,7 @@ export default function Home() {
               src={cake.image}
               alt={cake.name}
               className="image_cakes"
-            />
+            />  
             <div className="info-overlay">
               <h3>{cake.name}</h3>
               <p>{cake.description.length > 80 ? 
@@ -509,6 +509,86 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <footer className="footer">
+      <div className="footer-container">
+        {/* Brand Section */}
+        <div className="footer-brand">
+          <div className="footer-logo">
+            <span className="logo-text">Y</span>
+            <h3>YUM Bakery</h3>
+          </div>
+          <p>
+            Mang đến hương vị ngọt ngào trong từng sản phẩm. 
+            Từ bánh vòng thơm lừng đến bánh kem tinh tế.
+          </p>
+          {/* <div className="social-links">
+            <a href="#"><Facebook size={16} /></a>
+            <a href="#"><Instagram size={16} /></a>
+            <a href="#"><Twitter size={16} /></a>
+          </div> */}
+        </div>
+
+        <div className="footer-section">
+          <h4>Sản Phẩm</h4>
+          <ul>
+            <li><a href="#">🍩 Bánh Vòng</a></li>
+            <li><a href="#">🍰 Bánh Kem</a></li>
+            <li><a href="#">🥤 Thức Uống</a></li>
+            <li><a href="#">🍪 Bánh Quy</a></li>
+            <li><a href="#">🎂 Bánh Theo Yêu Cầu</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-section">
+          <h4>Dịch Vụ</h4>
+          <ul>
+            <li><a href="#">Đặt Hàng Online</a></li>
+            <li><a href="#">Giao Hàng Tận Nơi</a></li>
+            <li><a href="#">Tư Vấn Bánh Cưới</a></li>
+            <li><a href="#">Catering Events</a></li>
+            <li><a href="#">Khuyến Mãi</a></li>
+          </ul>
+        </div>
+
+        {/* <div className="footer-section">
+          <h4>Liên Hệ</h4>
+          <div className="contact-item">
+            <MapPin size={18} /><p>123 Đường Bánh Ngọt<br/>Quận 1, TP.HCM</p>
+          </div>
+          <div className="contact-item">
+            <Phone size={18} /><a href="tel:0123456789">0123 456 789</a>
+          </div>
+          <div className="contact-item">
+            <Mail size={18} /><a href="mailto:hello@yumbakery.vn">hello@yumbakery.vn</a>
+          </div>
+          <div className="contact-item">
+            <Clock size={18} />
+            <div>
+              <p>T2 - T6: 7:00 - 21:00</p>
+              <p>T7 - CN: 8:00 - 22:00</p>
+            </div>
+          </div>
+        </div> */}
+      </div>
+
+      <div className="newsletter">
+        <h4>🍯 Đăng Ký Nhận Tin Khuyến Mãi</h4>
+        <p>Nhận thông tin về sản phẩm mới và ưu đãi đặc biệt từ YUM Bakery</p>
+        <div className="newsletter-form">
+          <input type="email" placeholder="Nhập email của bạn..." />
+          <button>Đăng Ký</button>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© 2025 YUM Bakery. Tất cả quyền được bảo lưu.</p>
+        <div>
+          <a href="#">Chính Sách Bảo Mật</a>
+          <a href="#">Điều Khoản Sử Dụng</a>
+          <a href="#">Hỗ Trợ</a>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 }
