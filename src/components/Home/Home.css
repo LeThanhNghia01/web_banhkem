@@ -1,0 +1,33 @@
+/* Home.css - Main styles và global imports */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Raleway&family=Space+Mono&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Import component CSS files */
+@import './Banner/Banner.css';
+@import './AboutUs/AboutUs.css';
+@import './ProductList/ProductList.css';
+@import './OtherChoices/OtherChoices.css';
+@import './DrinksSlider/DrinksSlider.css';
+@import './CustomCake/CustomCake.css';
+@import './CookiesSection/CookiesSection.css';
+@import './Footer/Footer.css';
+
+/* GLOBAL STYLES */
+body {
+    line-height: 1.6;          
+    font-family: 'Raleway', sans-serif;  
+    overflow-x: hidden;    
+    background-image: url("../../assets/images/bg.jpg");
+}
+
+/* GLOBAL REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

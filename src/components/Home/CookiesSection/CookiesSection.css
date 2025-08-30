@@ -1,0 +1,161 @@
+/* CookiesSection.css */
+
+/* DESKTOP - 769px and above */
+@media screen and (min-width: 769px) {
+    .content_cookies {
+        background-color: #f6b53d;
+        grid-column: 3; /* cột phải, hàng dưới */
+        grid-row: 2;
+        height: 100%;
+        width: 100%; /* thay đổi từ 300px sang 100% */
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative; 
+        display: inline-block; 
+        right: 35%;
+    }
+    
+    .linkcookies {
+        height: auto;
+        width: auto;
+        position: absolute;
+        cursor: pointer;    
+        color: #fff; 
+        top: 50%;
+        left: 23%;
+        background-color: #e3678c; 
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 2px 5px;
+        z-index: 2;
+        border-radius: 10px; 
+    }
+    
+    .img_cookies {
+        height: 500px;
+        width: auto;
+        top: -130px;
+        left: 0px;
+        position: absolute;
+        border-radius: 10px;
+    }
+}
+
+/* TABLET - 768px and below */
+@media screen and (max-width: 768px) {
+    .content_cookies {
+        background-color: #f6b53d;
+        grid-column: 3;
+        grid-row: 2;
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative; 
+        display: inline-block; 
+        right: 35%;
+    }
+    
+    .linkcookies {
+        height: auto;
+        width: auto;
+        position: absolute;
+        cursor: pointer;    
+        color: #fff; 
+        top: 50%;
+        left: 23%;
+        background-color: #e3678c; 
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 2px 5px;
+        z-index: 2;
+        border-radius: 10px; 
+    }
+    
+    .img_cookies {
+        height: 500px;
+        width: auto;
+        top: -130px;
+        left: 0px;
+        position: absolute;
+        border-radius: 10px;
+    }
+}
+
+/* MOBILE - 480px and below */
+@media screen and (max-width: 480px) {
+    .content_cookies {
+        background-color: #f6b53d;
+        border-radius: 20px;
+        grid-column: 2; /* Cột thứ 2 */
+        grid-row: 2; /* Hàng thứ 2 */
+        height: 300px;
+        overflow: hidden;
+        width: 130%; 
+        position: relative;
+    }
+    
+    .linkcookies {
+        height: auto;
+        width: auto;
+        position: absolute;
+        cursor: pointer;    
+        color: #fff; 
+        top: 50%;
+        left: 23%;
+        background-color: #e3678c; 
+        text-decoration: none;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        z-index: 2;
+        border-radius: 10px; 
+    }
+    
+    .img_cookies {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 20px;
+    }
+        /* Cookies - hàng thứ 2, cột thứ 3 */
+        .content_cookies {
+            background-color: #f6b53d;
+            grid-column: 3; /* Cột thứ 3 */
+            grid-row: 2; /* Hàng thứ 2 */
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative; 
+            right: 80px;
+            top:160px;
+            width: 120px;
+            height: 140px;
+        }
+        .linkcookies{
+            height: auto;
+            width: 100px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;    
+            color:#fff; 
+            background-color:#e3678c; 
+            text-decoration: none;
+            font-size: 0.65rem;
+            padding: 5px 8px;
+            z-index: 2;
+            border-radius: 15px; 
+        }
+        .img_cookies{
+            height: 160px;
+            width: auto;
+            border-radius: 10px;
+        }
+}

@@ -1,0 +1,150 @@
+/* OtherChoices.css */
+
+/* DESKTOP - 769px and above */
+@media screen and (min-width: 769px) {
+    .content_otherchoices {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr; /* cột text - cột drinks - cột phải */
+        grid-template-rows: 1fr 1fr;   /* chia đôi chiều cao cột phải */
+        gap: 10px;
+        width: 100vw;
+        margin-left: -2%;
+        padding: 40px 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-sizing: border-box;
+    }
+    
+    /* Cột text mới */
+    .content_otherchoices_text {
+        background-color: #eadcd189;
+        grid-column: 1;       /* cột đầu tiên */
+        grid-row: 1 / span 2; /* chiếm cả 2 hàng */
+        border-radius: 20px;
+        padding: 30px;
+        width: 105%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; 
+        overflow: hidden;  
+        left: 35%;
+    }
+    
+    .otherchoices_text h1 {
+        color: #e3678c;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        text-align: center;
+        font-family: 'Pacifico', sans-serif;  
+        margin: 0;
+        position: relative;  /* đảm bảo text nằm trên */
+        z-index: 2;
+    }
+
+    .otherchoices_text_img img {
+        position: absolute;
+        top: 10%;     
+        left: 70%;
+        width: 30%;   /* to hơn container một chút để phủ nền */
+        height: auto;
+        z-index: 1;    /* nằm dưới text */
+        pointer-events: none; /* ảnh không chặn click */
+    }
+
+    .decor_img {
+        position: absolute;
+        width: 30%;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+    .decor_img.drink {
+        top: 10%;
+        left: 70%;
+    }
+
+    .decor_img.banh {
+        top: 60%;
+        left: 10%;
+    }
+
+    .decor_img.cookies {
+        top: 70%;
+        left: 60%;
+    }
+}
+/* MOBILE - 480px and below */
+@media screen and (max-width: 480px) {
+    .content_otherchoices {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr; /* 3 cột: cột text lớn, 2 cột nhỏ bên phải */
+        grid-template-rows: 1fr 1fr;   /* 2 hàng */
+        gap: 10px;
+        width: 100vw;
+        margin-left: -6%;
+        padding: 40px 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-sizing: border-box;
+    }
+
+    .content_otherchoices_text {
+        background-color: #eadcd189;
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; 
+        overflow: hidden;  
+        width: 300px;
+        grid-column: 1 / -1; /* Chiếm toàn bộ chiều rộng */
+        grid-row: 1; /* Hàng đầu tiên */
+    }
+
+    .otherchoices_text h1 {
+        color: #e3678c;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        text-align: center;
+        font-family: 'Pacifico', sans-serif;  
+        margin: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .otherchoices_text_img img {
+        position: absolute;
+        top: 10%;     
+        left: 70%;
+        width: 30%;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .decor_img {
+        position: absolute;
+        width: 30%;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .decor_img.drink {
+        top: 0%;
+        left: 70%;
+        opacity: 0.6;
+    }
+
+    .decor_img.banh {
+        top: 65%;
+        left: 0%;
+        opacity: 0.9;
+    }
+
+    .decor_img.cookies {
+        top: 70%;
+        left: 60%;
+    }
+}
